@@ -1,0 +1,35 @@
+.layout {
+    background: var(--primary);
+    
+    position: relative;
+    bottom: 0;
+
+    height: 100vh;
+    padding-top: 10vh;
+    overflow: hidden;
+}
+
+/* TABLETS */
+@media only screen
+and (min-width: 768px)
+and (max-width: 1400px) {
+    .layout {
+        padding-top: 10vh;
+    }
+}
+
+/* PHONES */
+@media only screen
+and (max-width: 767px) {
+    .layout {
+        padding-top: 0;
+        padding-bottom: 10vh;
+    }
+}
+
+/* PORTRAIT PHONES */
+@media only screen
+and (max-width: 767px)
+and (orientation: portrait) {
+
+}

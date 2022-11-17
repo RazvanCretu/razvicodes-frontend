@@ -1,0 +1,38 @@
+@import url("../theme.css");
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* flex-direction: column; */
+    height: -webkit-fill-available;
+    height: -moz-available;
+    width: 50%;
+    margin: 0 auto;
+    /* background: rgb(240, 233, 233);
+    border-radius: 20px;
+    box-shadow: 5px 10px 25px rgb(99, 68, 68); */
+}
+
+/* TABLETS */
+@media only screen
+and (min-width: 768px)
+and (max-width: 1400px) {
+    .container {
+    }
+}
+
+/* PHONES */
+@media only screen
+and (max-width: 767px) {
+    .container {
+        width: 90%;
+    }
+}
+
+/* PORTRAIT PHONES */
+@media only screen
+and (max-width: 767px)
+and (orientation: portrait) {
+
+}

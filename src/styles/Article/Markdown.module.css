@@ -1,0 +1,14 @@
+.code {
+    padding: .12rem .5rem;
+    color: red;
+    border-radius: 7.5px;
+    background-color: var(--text-secondary);
+    font-size: 1rem;
+}
+
+.copy {
+    width: fit-content;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+}

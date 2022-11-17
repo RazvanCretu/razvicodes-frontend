@@ -1,24 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+import { Routes, Route, Navigate } from "react-router-dom";
+import { Layout } from "./components/Layout";
+import { Home } from "./pages";
+import Articles from "./pages/Articles";
+import { Article } from "./pages/Article";
+import { About } from "./pages/About";
+import { NoMatch } from "./pages/404";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    // EVERYTHING ROUTES
+    <Routes>
+      <Route element={<Layout />}>
+        <Route index element={<Navigate to="home" replace={true} />} />
+        <Route path="home" element={<Home />} />
+        <Route path="about" element={<About />} />
+        <Route
+          path="blog/*"
+          element={
+            <Routes>
+              <Route>
+                <Route index element={<Articles />} />
+                <Route path=":slug" element={<Article />} />
+                <Route path="*" element={<NoMatch />} />
+              </Route>
+            </Routes>
+          }
+        />
+        <Route path="*" element={<NoMatch />} />
+      </Route>
+    </Routes>
   );
 }
 

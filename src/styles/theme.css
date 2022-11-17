@@ -1,0 +1,31 @@
+:root {
+    --primary: #FFEDDF;
+    --active: #4169e1;
+    --primary-bg: #ffebcd;
+    --text-primary: rgb(53, 39, 39);
+    --text-secondary: #69503a;
+    --toggler: rgb(53, 39, 39);
+    --title: #32211b;
+    --article: #deb892;
+    --background-color: #eee;
+    --link-color: rgb(100, 149, 237);
+    --about: #aaa;
+}
+
+[data-theme="dark"] {
+    --primary: #1f1f2d;
+    --active: #add8e6;
+    --primary-bg: rgb(61, 57, 49);
+    --text-primary: #eee;
+    --text-secondary: #c8c8c8;
+    --toggler: yellow;
+    --title: #eee;
+    --article: #5d5e76;
+    --background-color: #333;
+    --link-color: lightblue;
+    --about: #282c34;
+}
+
+/* #AFE0CE */
+/* #f2542d */
+/* #F1BF98 */
