@@ -63,10 +63,15 @@ export const About = () => {
       <section className={styles.About__Contact}>
         <h1>Contact</h1>
         <div>
-          <a href="mailto:razvan.cretu97@gmail.com" rel="noreferrer">
+          <a
+            className={styles.emailMe}
+            href="mailto:razvan.cretu97@gmail.com"
+            rel="noreferrer"
+          >
             Email Me
           </a>
           <a
+            className={styles.download}
             href={`${process.env.REACT_APP_BACKEND}/uploads/CV_Web_18102022_9670a02a77.pdf`}
             download="Razvan-CV"
           >

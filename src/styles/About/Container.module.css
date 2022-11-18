@@ -39,11 +39,33 @@
     width: 48px;
     height: 48px;
     color: var(--text-secondary);
-    margin-bottom: 2rem;
+}
+
+.About__Technologies svg:not(:last-child),
+.About__Technologies svg:not(:first-child) {
+    margin: 0 1rem 1rem;
 }
 
 .About__Contact h1 {
     margin: 2rem 0;
+}
+
+.emailMe {
+    /* background: aliceblue; */
+    padding: 0.75rem 0.5rem;
+    color: var(--text-primary) !important;
+    border: .2rem solid var(--text-secondary);
+    border-radius: 15px;
+    margin-right: 2rem;
+    font-weight: 600;
+}
+
+.download {
+    background: var(--active);
+    padding: 0.75rem 0.5rem;
+    color: var(--primary);
+    border-radius: 15px;
+    font-weight: 600;
 }
 
 /* TABLETS */
