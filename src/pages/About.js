@@ -72,7 +72,7 @@ export const About = () => {
           </a>
           <a
             className={styles.download}
-            href={`${process.env.REACT_APP_BACKEND}/uploads/CV_Web_18102022_9670a02a77.pdf`}
+            href={`${process.env.REACT_APP_BACKEND}/uploads/Razvan_s_CV_7b25f0d919.pdf`}
             download="Razvan-CV"
           >
             Download CV
