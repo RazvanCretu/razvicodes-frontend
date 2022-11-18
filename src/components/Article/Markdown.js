@@ -13,26 +13,28 @@ import {
 import styles from "../../styles/Article/Markdown.module.css";
 import "katex/dist/katex.min.css";
 
+import copy from "copy-to-clipboard";
+
 const Code = ({ node, inline, className, children, ...props }) => {
+  const { theme } = useTheme();
   const [isCopied, setIsCopied] = useState(false);
+
   useEffect(() => {
     const timeoutId = setTimeout(() => setIsCopied(false), 1500);
 
     return () => clearTimeout(timeoutId);
   }, [isCopied]);
 
-  const { theme } = useTheme();
-
   const match = /language-(\w+)/.exec(className || "");
 
-  const handleCopy = async (txt) => {
+  const handleCopy = () => {
     if (isCopied) {
       return;
     }
 
     setIsCopied(true);
     if ("clipboard" in navigator) {
-      return await navigator.clipboard.writeText(children);
+      copy(children);
     } else {
       document.execCommand("copy", true, children);
     }
@@ -44,9 +46,11 @@ const Code = ({ node, inline, className, children, ...props }) => {
         position: "relative",
       }}
     >
-      <div className={styles.copy} onClick={handleCopy}>
-        {isCopied ? <FaCheck /> : <FaCopy />}
-      </div>
+      {document.queryCommandSupported("copy") && (
+        <div className={styles.copy} onClick={handleCopy}>
+          {isCopied ? <FaCheck /> : <FaCopy />}
+        </div>
+      )}
       <SyntaxHighlighter
         children={String(children).replace(/\n$/, "")}
         style={theme === "dark" ? oneDark : oneLight}
