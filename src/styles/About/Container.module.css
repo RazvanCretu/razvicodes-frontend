@@ -1,0 +1,76 @@
+.About {
+    height: 100%;
+    overflow-y: scroll;
+    padding: 0 20%;
+    font-size: 1.2rem;
+    font-weight: 400;
+}
+
+.About section {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-height: 400px;
+}
+
+.About__Bio h1 {
+    margin: 2rem 0;
+}
+
+.About__Bio div p {
+    margin: 1rem 0;
+}
+
+.About__Technologies div {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    margin: 3rem;
+}
+
+.About__Technologies h1 {
+    margin: 2rem 0;
+}
+
+.About__Technologies svg {
+    width: 48px;
+    height: 48px;
+    color: var(--text-secondary);
+    margin-bottom: 2rem;
+}
+
+.About__Contact h1 {
+    margin: 2rem 0;
+}
+
+/* TABLETS */
+@media only screen
+and (min-width: 768px)
+and (max-width: 1400px) {
+}
+
+/* PHONES */
+@media only screen
+and (max-width: 767px) {
+    .About {
+        padding: 0 1rem;
+    }
+}
+
+/* PORTRAIT PHONES */
+@media only screen
+and (max-width: 767px)
+and (orientation: portrait) {
+}
+
+.bounce2 {
+    animation: bounce2 1.7s ease forwards;
+}
+@keyframes bounce2 {
+    0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
+    40% {transform: translateY(-30px);}
+    60% {transform: translateY(-15px);}
+}
