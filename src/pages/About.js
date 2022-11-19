@@ -17,7 +17,7 @@ import {
 
 const UPLOAD_FILES = gql`
   query Files {
-    uploadFiles {
+    uploadFiles(filters: { name: { contains: "Razvan's CV" } }) {
       data {
         id
         attributes {
@@ -35,12 +35,10 @@ const UPLOAD_FILES = gql`
 export const About = () => {
   const { error, loading, data } = useQuery(UPLOAD_FILES);
 
-  const files = data?.uploadFiles.data;
-
-  const cv = files.filter((f) => f.attributes.name === "Razvan's CV.pdf")[0];
+  const cv = data?.uploadFiles.data[0];
 
   console.log(cv);
-  return (
+  return data ? (
     <Container>
       <section className={styles.About__Bio}>
         <h1 className={styles.bounce2}>About Me</h1>
@@ -105,5 +103,5 @@ export const About = () => {
         </div>
       </section>
     </Container>
-  );
+  ) : null;
 };
