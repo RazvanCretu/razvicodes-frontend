@@ -5,6 +5,8 @@ import "moment-timezone";
 
 import styles from "../../styles/Articles/List.module.css";
 
+Moment.globalLocal = true;
+
 const List = ({ articles }) => {
   const animate = (i) => `slideInRight 1s ease-in ${0.25 * i}s forwards`;
 
@@ -18,11 +20,7 @@ const List = ({ articles }) => {
         >
           <div className={styles.itemHero}>
             <h2 className={styles.itemTitle}>{article.attributes.title}</h2>
-            <Moment
-              className={styles.itemTime}
-              format="YY MMM dddd Do"
-              tz="UTC+3"
-            >
+            <Moment className={styles.itemTime} format="YY MMM dddd Do">
               {article.attributes.publishedAt}
             </Moment>
           </div>

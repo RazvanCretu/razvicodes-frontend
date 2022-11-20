@@ -91,7 +91,11 @@ export const About = () => {
           </section>
           <section className={styles.About__Contact}>
             <h1>Contact</h1>
-            <div>
+            <p>
+              Do you think that we can work alongside or have a cool project
+              that I could work on?
+            </p>
+            <div style={{ margin: "5rem 0rem" }}>
               <a
                 className={styles.emailMe}
                 href="mailto:razvan.cretu97@gmail.com"

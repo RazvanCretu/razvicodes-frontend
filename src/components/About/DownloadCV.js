@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import styles from "../../styles/About/DownloadCV.module.css";
 
 const DownloadCV = ({ cv }) => {
@@ -10,7 +10,6 @@ const DownloadCV = ({ cv }) => {
       const blob = await res.blob();
       const url = URL.createObjectURL(new Blob([blob]));
 
-      //   console.log(url);
       downloadBtn.current.href = url;
     };
     getBlob();

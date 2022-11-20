@@ -6,6 +6,7 @@
     height: 10vh;
     width: 100%;
 
+    background: var(--primary);
     position: absolute;
     top: 0;
 }
@@ -57,7 +58,7 @@
 
 .link a {
     /* -webkit-touch-callout: none; */
-    padding-bottom: 1rem;
+    padding-bottom: .4rem;
 }
 
 .link a:focus{
@@ -91,8 +92,10 @@ and (max-width: 1400px) {
 @media only screen
 and (max-width: 767px) {
     .bar {
+        position: fixed;
         top: unset;
         bottom: 0;
+        /* transform: translateY(10vh); */
     }
 
     .hero_container {
