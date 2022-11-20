@@ -4,6 +4,10 @@
     padding: 0 20%;
     font-size: 1.2rem;
     font-weight: 400;
+    display: flex;
+    flex-flow: wrap;
+    align-items: center;
+    justify-content: center;
 }
 
 .About section {
