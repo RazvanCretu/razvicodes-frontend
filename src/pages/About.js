@@ -1,4 +1,4 @@
-import { React } from "react";
+import React from "react";
 import Container from "../components/About/Container";
 import styles from "../styles/About/Container.module.css";
 import { useQuery, gql } from "@apollo/client";
@@ -14,10 +14,11 @@ import {
   SiPython,
   SiGraphql,
 } from "react-icons/si";
+import DownloadCV from "../components/About/DownloadCV";
 
 const UPLOAD_FILES = gql`
   query Files {
-    uploadFiles(filters: { name: { contains: "Razvan's CV" } }) {
+    uploadFiles(filters: { name: { contains: "Razvan WebDev CV" } }) {
       data {
         id
         attributes {
@@ -35,10 +36,9 @@ const UPLOAD_FILES = gql`
 export const About = () => {
   const { error, loading, data } = useQuery(UPLOAD_FILES);
 
-  const cv = data?.uploadFiles.data[0];
+  const cv = data?.uploadFiles.data[0] || undefined;
 
-  console.log(cv);
-  return data ? (
+  return cv ? (
     <Container>
       <section className={styles.About__Bio}>
         <h1 className={styles.bounce2}>About Me</h1>
@@ -93,13 +93,7 @@ export const About = () => {
           >
             Email Me
           </a>
-          <a
-            className={styles.download}
-            href={`${process.env.REACT_APP_BACKEND}${cv.attributes.url}`}
-            download="Razvan-CV"
-          >
-            Download CV
-          </a>
+          <DownloadCV cv={cv} />
         </div>
       </section>
     </Container>

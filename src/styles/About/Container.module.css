@@ -39,10 +39,10 @@
     width: 48px;
     height: 48px;
     color: var(--text-secondary);
+    margin-bottom: 1rem;
 }
 
-.About__Technologies svg:not(:last-child),
-.About__Technologies svg:not(:first-child) {
+.About__Technologies svg:not(:first-child):not(:last-child) {
     margin: 0 1rem 1rem;
 }
 
@@ -60,13 +60,7 @@
     font-weight: 600;
 }
 
-.download {
-    background: var(--active);
-    padding: 0.75rem 0.5rem;
-    color: var(--primary);
-    border-radius: 15px;
-    font-weight: 600;
-}
+
 
 /* TABLETS */
 @media only screen
