@@ -4,11 +4,12 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    /* flex-direction: column; */
+    flex-direction: column;
     height: -webkit-fill-available;
     height: -moz-available;
     width: 50%;
     margin: 0 auto;
+    position: relative;
     /* background: rgb(240, 233, 233);
     border-radius: 20px;
     box-shadow: 5px 10px 25px rgb(99, 68, 68); */
