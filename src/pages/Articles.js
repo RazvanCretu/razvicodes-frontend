@@ -35,7 +35,7 @@ const QUERY_ARTICLES = gql`
 let PageSize = 5;
 
 const Articles = () => {
-  const [currentPage, setCurrentPage] = useState(Number(getDefaultPage()));
+  const [currentPage, setCurrentPage] = useState(getDefaultPage());
   const { error, loading, data } = useQuery(QUERY_ARTICLES, {
     variables: { page: currentPage, pageSize: PageSize },
   });
@@ -69,5 +69,5 @@ export default Articles;
 const getDefaultPage = () => {
   const selPage = localStorage.getItem("articlesPage");
 
-  return selPage || 1;
+  return Number(selPage) || 1;
 };
