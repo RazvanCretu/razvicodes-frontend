@@ -69,7 +69,7 @@ const Code = ({ node, inline, className, children, ...props }) => {
 const Image = ({ node, className, alt, ...props }) => {
   return (
     <img
-      className={styles.img}
+      className={styles.image}
       alt={alt}
       {...props}
       // loading="lazy"

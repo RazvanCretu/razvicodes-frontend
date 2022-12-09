@@ -11,6 +11,7 @@
     padding: 1rem 1rem 0;
     
     overflow-y: scroll;
+    scrollbar-width: none;
 }
 
 /* TABLETS & DESKTOPS */
