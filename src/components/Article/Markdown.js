@@ -68,6 +68,16 @@ const Code = ({ node, inline, className, children, ...props }) => {
 
 const components = {
   code: Code,
+  img: ({ node, className, alt, ...props }) => {
+    return (
+      <img
+        className={styles.img}
+        alt={alt}
+        {...props}
+        // loading="lazy"
+      />
+    );
+  },
 };
 
 const Markdown = ({ children }) => {
