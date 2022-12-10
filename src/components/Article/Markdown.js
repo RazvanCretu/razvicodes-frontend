@@ -45,6 +45,7 @@ const Code = ({ node, inline, className, children, ...props }) => {
       style={{
         position: "relative",
       }}
+      className={styles.Content}
     >
       {document.queryCommandSupported("copy") && (
         <div className={styles.copy} onClick={handleCopy}>
@@ -52,6 +53,7 @@ const Code = ({ node, inline, className, children, ...props }) => {
         </div>
       )}
       <SyntaxHighlighter
+        className={styles.Snippet}
         children={String(children).replace(/\n$/, "")}
         style={theme === "dark" ? oneDark : oneLight}
         language={match[1]}
