@@ -24,6 +24,15 @@
     animation: fadeIn 1s ease-in-out forwards;
 }
 
+.Snippet {
+    line-height: 1.1 !important;
+}
+
+.Snippet code {
+    font-size: 1.05rem;
+    line-height: inherit !important;
+}
+
 @keyframes fadeIn {
     0% {opacity: 0;}
     100% {opacity: 1;}
