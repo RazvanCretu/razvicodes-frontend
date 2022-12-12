@@ -1,8 +1,8 @@
 .code {
     padding: .12rem .5rem;
-    color: red;
+    color: var(--text-primary);
     border-radius: 7.5px;
-    background-color: var(--text-secondary);
+    background-color: var(--inlineCode);
     font-size: 1rem;
 }
 

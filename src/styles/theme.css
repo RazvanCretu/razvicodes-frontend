@@ -4,6 +4,7 @@
     --primary-bg: #ffebcd;
     --text-primary: rgb(53, 39, 39);
     --text-secondary: #69503a;
+    --inlineCode: hsl(27, 100%, 75%);
     --toggler: rgb(53, 39, 39);
     --title: #32211b;
     --article: #deb892;
@@ -13,11 +14,12 @@
 }
 
 [data-theme="dark"] {
-    --primary: #1f1f2d;
+    --primary: rgb(31, 31, 45);
     --active: #add8e6;
     --primary-bg: rgb(61, 57, 49);
     --text-primary: #eee;
     --text-secondary: #c8c8c8;
+    --inlineCode: hsl(240, 18%, 30%);
     --toggler: yellow;
     --title: #eee;
     --article: #5d5e76;
