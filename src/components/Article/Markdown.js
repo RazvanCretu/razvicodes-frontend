@@ -57,7 +57,6 @@ const Code = ({ node, inline, className, children, ...props }) => {
         children={String(children).replace(/\n$/, "")}
         style={theme === "dark" ? oneDark : oneLight}
         language={match[1]}
-        // PreTag="div"
         {...props}
       />
     </div>
@@ -69,14 +68,7 @@ const Code = ({ node, inline, className, children, ...props }) => {
 };
 
 const Image = ({ node, className, alt, ...props }) => {
-  return (
-    <img
-      className={styles.image}
-      alt={alt}
-      {...props}
-      // loading="lazy"
-    />
-  );
+  return <img className={styles.image} alt={alt} {...props} />;
 };
 
 const components = {
