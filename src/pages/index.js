@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import styles from "../styles/Home.module.css";
 import { FaLinkedin, FaFacebook, FaGithub } from "react-icons/fa";
-import Dropdown from "../components/Dropdown";
-import Burger from "../components/Burger";
+// import Dropdown from "../components/Dropdown";
+// import Burger from "../components/Burger";
 
 export const Home = () => {
   const [isOpen, setIsOpen] = useState(false);
+
+  const handleSwitch = () => setIsOpen(!isOpen);
 
   return (
     <div className={styles.container}>
