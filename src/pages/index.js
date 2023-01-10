@@ -1,13 +1,19 @@
-import { React } from "react";
+import React, { useState } from "react";
 import styles from "../styles/Home.module.css";
 import { FaLinkedin, FaFacebook, FaGithub } from "react-icons/fa";
+import Dropdown from "../components/Dropdown";
+import Burger from "../components/Burger";
 
 export const Home = () => {
+  const [isOpen, setIsOpen] = useState(false);
+
   return (
     <div className={styles.container}>
       <div className={styles.hero}>
+        <Dropdown />
+        <Burger isOpen={isOpen} handleSwitch={handleSwitch} />
         <p>Hi 👋, I am Razvan</p>
-        <h1 className={styles.slideInRight}>A Self-Thought</h1>
+        <h1 className={styles.slideInRight}>A Self-Taught</h1>
         <h1 className={styles.slideInLeft}>Web Developer</h1>
         <div className={styles.socials}>
           <a
