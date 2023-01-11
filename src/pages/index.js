@@ -12,8 +12,8 @@ export const Home = () => {
   return (
     <div className={styles.container}>
       <div className={styles.hero}>
-        <Dropdown />
-        <Burger isOpen={isOpen} handleSwitch={handleSwitch} />
+        {/* <Dropdown /> */}
+        {/* <Burger isOpen={isOpen} handleSwitch={handleSwitch} /> */}
         <p>Hi 👋, I am Razvan</p>
         <h1 className={styles.slideInRight}>A Self-Taught</h1>
         <h1 className={styles.slideInLeft}>Web Developer</h1>
