@@ -4,7 +4,7 @@ import App from "./App";
 import "./styles/index.css";
 import { BrowserRouter as Router } from "react-router-dom";
 import { ApolloClient, ApolloProvider, InMemoryCache } from "@apollo/client";
-import { Theme } from "./contexts/ThemeContext";
+import Theme from "./theme";
 
 const client = new ApolloClient({
   uri: `${process.env.REACT_APP_BACKEND_GRAPHQL}`,
