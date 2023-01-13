@@ -1,5 +1,6 @@
 import React, { Fragment, useEffect, useState } from "react";
-import Container from "../components/Articles/Container";
+import { Container } from "@mui/material";
+import { styled } from "@mui/material/styles";
 import List from "../components/Articles/List";
 import Loader from "../components/Loader";
 import Pagination from "../components/Pagination";
@@ -34,6 +35,19 @@ const QUERY_ARTICLES = gql`
 
 let PageSize = 5;
 
+const ArticlesContainer = styled(Container)(({ theme }) => ({
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
+  flexDirection: "column",
+  height: "100vh",
+  margin: "0 auto",
+  position: "relative",
+  [theme.breakpoints.up("lg")]: {
+    maxWidth: "900px",
+  },
+}));
+
 const Articles = () => {
   const [currentPage, setCurrentPage] = useState(getDefaultPage());
   const { error, loading, data } = useQuery(QUERY_ARTICLES, {
@@ -45,7 +59,7 @@ const Articles = () => {
   }, [currentPage]);
 
   return (
-    <Container>
+    <ArticlesContainer>
       {error && <p>{error.message}</p>}
       {loading && <Loader />}
       {data && (
@@ -60,7 +74,7 @@ const Articles = () => {
           />
         </Fragment>
       )}
-    </Container>
+    </ArticlesContainer>
   );
 };
 
