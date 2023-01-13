@@ -10,8 +10,8 @@
     margin: 0 auto;
     padding: 8vh 1rem 0;
     
-    overflow-y: scroll;
-    scrollbar-width: none;
+    /* overflow-y: scroll; */
+    /* scrollbar-width: none; */
 }
 
 /* TABLETS & DESKTOPS */
