@@ -4,11 +4,11 @@
     justify-content: center;
     flex-flow: wrap;
 
-    width: 50%;
+    width: 67%;
     min-height: 100vh;
     
     margin: 0 auto;
-    padding: 8vh 1rem 0;
+    padding: 7vh 1rem 0;
     
     /* overflow-y: scroll; */
     /* scrollbar-width: none; */

@@ -3,6 +3,7 @@ import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import remarkMath from "remark-math";
 import rehypeKatex from "rehype-katex";
+import { Typography } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { FaCopy, FaCheck } from "react-icons/fa";
@@ -18,7 +19,7 @@ import copy from "copy-to-clipboard";
 const Code = ({ node, inline, className, children, ...props }) => {
   const [isCopied, setIsCopied] = useState(false);
   const theme = useTheme();
-  console.log(theme);
+  // console.log(theme);
 
   useEffect(() => {
     const timeoutId = setTimeout(() => setIsCopied(false), 1500);
@@ -75,6 +76,9 @@ const Image = ({ node, className, alt, ...props }) => {
 const components = {
   code: Code,
   img: Image,
+  p: ({ node, ...props }) => {
+    return <Typography {...props} sx={{ fontSize: "1.2rem" }} />;
+  },
 };
 
 const Markdown = ({ children }) => {
