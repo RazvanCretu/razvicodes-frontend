@@ -3,7 +3,7 @@ import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import remarkMath from "remark-math";
 import rehypeKatex from "rehype-katex";
-import { useTheme } from "../../contexts/ThemeContext";
+import { useTheme } from "@mui/material/styles";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { FaCopy, FaCheck } from "react-icons/fa";
 import {
@@ -16,8 +16,9 @@ import "katex/dist/katex.min.css";
 import copy from "copy-to-clipboard";
 
 const Code = ({ node, inline, className, children, ...props }) => {
-  const { theme } = useTheme();
   const [isCopied, setIsCopied] = useState(false);
+  const theme = useTheme();
+  console.log(theme);
 
   useEffect(() => {
     const timeoutId = setTimeout(() => setIsCopied(false), 1500);
@@ -55,7 +56,7 @@ const Code = ({ node, inline, className, children, ...props }) => {
       <SyntaxHighlighter
         className={styles.Snippet}
         children={String(children).replace(/\n$/, "")}
-        style={theme === "dark" ? oneDark : oneLight}
+        style={theme.palette.mode === "dark" ? oneDark : oneLight}
         language={match[1]}
         {...props}
       />
