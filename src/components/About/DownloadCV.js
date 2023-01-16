@@ -1,29 +1,34 @@
-import React, { useEffect, useRef } from "react";
-import styles from "../../styles/About/DownloadCV.module.css";
+import React, { useRef } from "react";
+import { Typography } from "@mui/material";
+
+const getBlob = async (cv, ref) => {
+  const res = await fetch(cv.attributes.url);
+  const blob = await res.blob();
+  const url = URL.createObjectURL(new Blob([blob]));
+
+  ref.current.href = url;
+};
 
 const DownloadCV = ({ cv }) => {
   const downloadBtn = useRef();
 
-  useEffect(() => {
-    const getBlob = async () => {
-      const res = await fetch(cv.attributes.url);
-      const blob = await res.blob();
-      const url = URL.createObjectURL(new Blob([blob]));
-
-      downloadBtn.current.href = url;
-    };
-    getBlob();
-  }, [cv]);
+  getBlob(cv, downloadBtn);
 
   return (
-    <a
-      className={styles.download}
-      href="."
+    <Typography
+      component="a"
+      sx={{
+        background: "var(--active)",
+        padding: "0.95rem 0.5rem",
+        borderRadius: "15px",
+        fontWeight: 600,
+      }}
+      href="#"
       download="Razvan's WebDev CV.pdf"
       ref={downloadBtn}
     >
       Download CV
-    </a>
+    </Typography>
   );
 };
 
