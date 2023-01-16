@@ -1,6 +1,6 @@
 import React from "react";
 import { NavLink, Outlet } from "react-router-dom";
-import { styled, useTheme } from "@mui/material/styles";
+import { useTheme } from "@mui/material/styles";
 import { Container, AppBar, Box, Button, IconButton } from "@mui/material";
 import { BsSunFill, BsMoonFill } from "react-icons/bs";
 
