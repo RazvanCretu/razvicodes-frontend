@@ -43,7 +43,7 @@ export const Article = () => {
         <Fragment>
           <Hero>
             <h1>{article.attributes.title}</h1>
-            <Moment format="YY MMM dddd Do" tz="UTC+3">
+            <Moment format="YY MMM dddd Do">
               {article.attributes.publishedAt}
             </Moment>
           </Hero>
