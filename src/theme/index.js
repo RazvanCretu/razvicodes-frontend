@@ -2,7 +2,7 @@ import React, { useState, useEffect, useMemo } from "react";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import { light, dark } from "./palette";
 import CssBaseline from "@mui/material/CssBaseline";
-import GlobalStyles from "@mui/material/GlobalStyles";
+import Globals from "./globals";
 
 const Theme = ({ children }) => {
   const [theme, setTheme] = useState(getDefaultTheme());
@@ -24,22 +24,23 @@ const Theme = ({ children }) => {
 
   if (!mounted) return <div style={{ visibility: "hidden" }} />;
 
+  console.log(themeMode);
+
   return (
     <ThemeProvider theme={{ ...themeMode, toggler }}>
       <CssBaseline />
-      {globalStyles}
+      {Globals}
       {children}
     </ThemeProvider>
   );
 };
-
-const globalStyles = <GlobalStyles styles={{}} />;
 
 const isDefaultDark = () =>
   window.matchMedia &&
   window.matchMedia("(prefers-color-scheme: dark)").matches;
 
 const getDefaultTheme = () => {
+  // run client-side only
   if (typeof window !== "undefined") {
     const localTheme = window.localStorage.getItem("theme");
     const browserTheme = isDefaultDark() ? "dark" : "light";
