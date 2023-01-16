@@ -23,7 +23,14 @@ const List = ({ articles }) => {
       {articles.map(
         ({ id, attributes: { title, publishedAt, slug } }, i, arr) => (
           <ListItem sx={{ animation: animate(i) }} key={id}>
-            <Card sx={{ display: "flex", padding: "1rem" }}>
+            <Card
+              sx={{
+                display: "flex",
+                padding: "1rem",
+                "& .MuiDivider-root": { margin: { xs: "0 .5rem 0 .5rem" } },
+                "& .MuiTypography-h4": { fontSize: { xs: "1.5rem" } },
+              }}
+            >
               <Box>
                 <Typography variant="h4">{title}</Typography>
                 <Typography
