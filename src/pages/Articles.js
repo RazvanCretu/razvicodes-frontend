@@ -1,5 +1,5 @@
 import React, { Fragment, useEffect, useState } from "react";
-import { Container } from "@mui/material";
+import { Container, Typography } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import List from "../components/Articles/List";
 import Loader from "../components/Loader";
@@ -42,7 +42,9 @@ const ArticlesContainer = styled(Container)(({ theme }) => ({
   flexDirection: "column",
   height: "100vh",
   margin: "0 auto",
+  paddingTop: "7vh",
   position: "relative",
+  overflow: "hidden",
   [theme.breakpoints.up("lg")]: {
     maxWidth: "900px",
   },
@@ -60,7 +62,7 @@ const Articles = () => {
 
   return (
     <ArticlesContainer>
-      {error && <p>{error.message}</p>}
+      {error && <Typography>{error.message}</Typography>}
       {loading && <Loader />}
       {data && (
         <Fragment>
@@ -68,7 +70,7 @@ const Articles = () => {
           <Pagination
             className="pagination-bar"
             currentPage={currentPage}
-            totalCount={data.articles.meta.pagination.total}
+            totalCount={data?.articles.meta.pagination.total}
             pageSize={PageSize}
             onPageChange={(page) => setCurrentPage(page)}
           />
