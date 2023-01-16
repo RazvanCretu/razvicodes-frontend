@@ -33,7 +33,7 @@ const QUERY_ARTICLES = gql`
   }
 `;
 
-let PageSize = 5;
+let pageSize = 5;
 
 const ArticlesContainer = styled(Container)(({ theme }) => ({
   display: "flex",
@@ -45,6 +45,7 @@ const ArticlesContainer = styled(Container)(({ theme }) => ({
   paddingTop: "7vh",
   position: "relative",
   overflow: "hidden",
+  paddingBottom: "3rem",
   [theme.breakpoints.up("lg")]: {
     maxWidth: "900px",
   },
@@ -71,7 +72,7 @@ const Articles = () => {
             className="pagination-bar"
             currentPage={currentPage}
             totalCount={data?.articles.meta.pagination.total}
-            pageSize={PageSize}
+            pageSize={pageSize}
             onPageChange={(page) => setCurrentPage(page)}
           />
         </Fragment>
