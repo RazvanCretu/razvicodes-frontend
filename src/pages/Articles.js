@@ -42,10 +42,11 @@ const ArticlesContainer = styled(Container)(({ theme }) => ({
   flexDirection: "column",
   height: "100vh",
   margin: "0 auto",
-  paddingTop: "7vh",
+  // paddingTop: "7vh",
   position: "relative",
   overflow: "hidden",
-  paddingBottom: "3rem",
+  // paddingBottom: "3rem",
+  padding: "7vh 5px 3rem",
   [theme.breakpoints.up("md")]: {
     maxWidth: "1000px",
   },
