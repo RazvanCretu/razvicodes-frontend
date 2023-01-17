@@ -22,21 +22,26 @@ const List = ({ articles }) => {
     <MUIList sx={{ minWidth: "100%" }}>
       {articles.map(
         ({ id, attributes: { title, publishedAt, slug } }, i, arr) => (
-          <ListItem sx={{ animation: animate(i) }} key={id}>
+          <ListItem sx={{ animation: animate(i) }} disableGutters key={id}>
             <Card
               sx={{
                 display: "flex",
                 padding: "1rem",
                 minWidth: "100%",
                 justifyContent: "space-between",
-                "& .MuiTypography-h4": { fontSize: { xs: "1.5rem" } },
+                "& .MuiTypography-h4": {
+                  fontSize: { xs: "1.2rem", sm: "1.5rem" },
+                },
               }}
             >
               <Box>
                 <Typography variant="h4">{title}</Typography>
                 <Typography
                   component={Moment}
-                  sx={{ fontStyle: "italic" }}
+                  sx={{
+                    fontStyle: "italic",
+                    fontSize: { xs: "0.8rem", sm: "1rem" },
+                  }}
                   format="YY MMM dddd Do"
                 >
                   {publishedAt}
