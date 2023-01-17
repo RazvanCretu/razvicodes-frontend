@@ -46,8 +46,8 @@ const ArticlesContainer = styled(Container)(({ theme }) => ({
   position: "relative",
   overflow: "hidden",
   paddingBottom: "3rem",
-  [theme.breakpoints.up("lg")]: {
-    maxWidth: "900px",
+  [theme.breakpoints.up("md")]: {
+    maxWidth: "1000px",
   },
 }));
 
