@@ -54,7 +54,7 @@ const ArticlesContainer = styled(Container)(({ theme }) => ({
 const Articles = () => {
   const [currentPage, setCurrentPage] = useState(getDefaultPage());
   const { error, loading, data } = useQuery(QUERY_ARTICLES, {
-    variables: { page: currentPage, pageSize: PageSize },
+    variables: { page: currentPage, pageSize: pageSize },
   });
 
   useEffect(() => {
