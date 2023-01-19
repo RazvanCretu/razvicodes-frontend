@@ -16,13 +16,21 @@ import "moment-timezone";
 Moment.globalLocal = true;
 
 const List = ({ articles }) => {
-  const animate = (i) => `slideInRight 1s ease-in ${0.25 * i}s forwards`;
+  const animate = (i) => `slideInRight 1.25s ease-in ${0.25 * i}s forwards`;
 
   return (
-    <MUIList sx={{ minWidth: "100%" }}>
+    <MUIList sx={{ overflow: "hidden", minWidth: "100%" }}>
       {articles.map(
         ({ id, attributes: { title, publishedAt, slug } }, i, arr) => (
-          <ListItem sx={{ animation: animate(i) }} disableGutters key={id}>
+          <ListItem
+            sx={{
+              opacity: "0%",
+              transform: "translateX(100%)",
+              animation: animate(i),
+            }}
+            disableGutters
+            key={id}
+          >
             <Card
               sx={{
                 display: "flex",
