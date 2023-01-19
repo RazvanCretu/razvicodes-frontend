@@ -79,6 +79,11 @@ const Articles = () => {
         count={posts.length}
         page={currentPage}
         onChange={handlePageChange}
+        sx={{
+          position: "absolute",
+          bottom: 0,
+          marginBottom: "3rem",
+        }}
       />
     </ArticlesContainer>
   );
