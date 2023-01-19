@@ -1,15 +1,14 @@
-import React, { Fragment, useState } from "react";
-import { Container, Typography } from "@mui/material";
+import React, { useState } from "react";
+import { Container, Typography, Pagination } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import List from "../components/Articles/List";
 import Loader from "../components/Loader";
-import Pagination from "../components/Pagination";
 
 import { useQuery, gql } from "@apollo/client";
 
 const QUERY_ARTICLES = gql`
   query Articles {
-    articles(sort: "publishedAt:desc", pagination: { limit: -1 }) {
+    articles(sort: "publishedAt:desc") {
       data {
         id
         attributes {
@@ -47,7 +46,7 @@ const Articles = () => {
   const firstPost = lastPost - pageSize;
   const posts = data?.articles.data.slice(firstPost, lastPost);
 
-  const handlePageChange = (page) => {
+  const handlePageChange = (e, page) => {
     localStorage.setItem("articlesPage", page);
     setCurrentPage(page);
   };
@@ -66,16 +65,8 @@ const Articles = () => {
 
   return (
     <ArticlesContainer>
-      <Fragment>
-        <List articles={posts} />
-        <Pagination
-          className="pagination-bar"
-          currentPage={currentPage}
-          totalCount={data.articles.data.length}
-          pageSize={pageSize}
-          onPageChange={handlePageChange}
-        />
-      </Fragment>
+      <List articles={posts} />
+      <Pagination count={3} page={currentPage} onChange={handlePageChange} />
     </ArticlesContainer>
   );
 };
