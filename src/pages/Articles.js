@@ -28,10 +28,9 @@ const ArticlesContainer = styled(Container)(({ theme }) => ({
   alignItems: "center",
   justifyContent: "center",
   flexDirection: "column",
-  height: "100vh",
+  minHeight: "100vh",
   margin: "0 auto",
   position: "relative",
-  overflow: "hidden",
   padding: "7vh 5px 3rem",
   [theme.breakpoints.up("md")]: {
     maxWidth: "1000px",
@@ -47,11 +46,7 @@ const Articles = () => {
   }
 
   if (loading) {
-    return (
-      <ArticlesContainer>
-        <Loader />
-      </ArticlesContainer>
-    );
+    return <Loader />;
   }
 
   // make chunks of posts corresponding to each page
