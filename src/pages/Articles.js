@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Container, Typography, Pagination } from "@mui/material";
 import { styled } from "@mui/material/styles";
-import List from "../components/Articles/List";
+import ArticlesList from "../components/Articles/List";
 import Loader from "../components/Loader";
 
 import { useQuery, gql } from "@apollo/client";
@@ -69,7 +69,7 @@ const Articles = () => {
 
   return (
     <ArticlesContainer>
-      <List articles={posts[currentPage - 1]} />
+      <ArticlesList articles={posts[currentPage - 1]} />
       <Pagination
         count={posts.length}
         page={currentPage}

@@ -1,8 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import Moment from "react-moment";
 import {
-  List as MUIList,
+  List,
   ListItem,
   Card,
   CardActions,
@@ -11,15 +10,16 @@ import {
   Button,
   Box,
 } from "@mui/material";
+import Moment from "react-moment";
 import "moment-timezone";
 
 Moment.globalLocal = true;
 
-const List = ({ articles }) => {
+const ArticlesList = ({ articles }) => {
   const animate = (i) => `slideInRight 1.25s ease-in ${0.25 * i}s forwards`;
 
   return (
-    <MUIList sx={{ overflow: "hidden", minWidth: "100%" }}>
+    <List sx={{ overflow: "hidden", minWidth: "100%" }}>
       {articles.map(
         ({ id, attributes: { title, publishedAt, slug } }, i, arr) => (
           <ListItem
@@ -69,8 +69,8 @@ const List = ({ articles }) => {
           </ListItem>
         )
       )}
-    </MUIList>
+    </List>
   );
 };
 
-export default List;
+export default ArticlesList;
