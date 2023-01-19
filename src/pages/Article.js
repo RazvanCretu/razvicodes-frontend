@@ -41,7 +41,7 @@ export const Article = () => {
     return <Loader />;
   }
 
-  const article = data?.articles.data[0];
+  const article = data.articles.data[0];
 
   return (
     <Container>
