@@ -42,15 +42,6 @@ const Articles = () => {
   const [currentPage, setCurrentPage] = useState(getDefaultPage());
   const { error, loading, data } = useQuery(QUERY_ARTICLES);
 
-  const lastPost = currentPage * pageSize;
-  const firstPost = lastPost - pageSize;
-  const posts = data?.articles.data.slice(firstPost, lastPost);
-
-  const handlePageChange = (e, page) => {
-    localStorage.setItem("articlesPage", page);
-    setCurrentPage(page);
-  };
-
   if (error) {
     return <Typography>{error.message}</Typography>;
   }
@@ -63,10 +54,32 @@ const Articles = () => {
     );
   }
 
+  // make chunks of posts corresponding to each page
+  const posts = data.articles.data.reduce((resultArray, item, index) => {
+    const chunkIndex = Math.floor(index / pageSize);
+
+    if (!resultArray[chunkIndex]) {
+      resultArray[chunkIndex] = []; // start a new chunk
+    }
+
+    resultArray[chunkIndex].push(item);
+
+    return resultArray;
+  }, []);
+
+  const handlePageChange = (e, page) => {
+    localStorage.setItem("articlesPage", page);
+    setCurrentPage(page);
+  };
+
   return (
     <ArticlesContainer>
-      <List articles={posts} />
-      <Pagination count={3} page={currentPage} onChange={handlePageChange} />
+      <List articles={posts[currentPage - 1]} />
+      <Pagination
+        count={posts.length}
+        page={currentPage}
+        onChange={handlePageChange}
+      />
     </ArticlesContainer>
   );
 };
