@@ -7,7 +7,6 @@ const Span = styled("span")(({ theme }) => ({
   width: "48px",
   height: "48px",
   borderRadius: "50%",
-  margin: "auto",
   position: "relative",
   animation: "rotate 1s linear infinite",
   "&::before, &::after": {
@@ -15,7 +14,7 @@ const Span = styled("span")(({ theme }) => ({
     boxSizing: "border-box",
     position: "absolute",
     inset: "0px",
-    borderRradius: "50%",
+    borderRadius: "50%",
     border: "5px solid var(--text-secondary)",
     animation: "prixClipFix 2s linear infinite",
   },
@@ -51,7 +50,7 @@ const Loader = () => {
         minWidth: "100%",
       }}
     >
-      <Span />;
+      <Span />
     </Container>
   );
 };
