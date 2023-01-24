@@ -4,22 +4,8 @@ import { styled } from "@mui/material/styles";
 import ArticlesList from "../components/Articles/List";
 import Loader from "../components/Loader";
 
-import { useQuery, gql } from "@apollo/client";
-
-const QUERY_ARTICLES = gql`
-  query Articles {
-    articles(sort: "publishedAt:desc") {
-      data {
-        id
-        attributes {
-          title
-          slug
-          publishedAt
-        }
-      }
-    }
-  }
-`;
+import { useQuery } from "@apollo/client";
+import { GET_ARTICLES } from "../queries";
 
 let pageSize = 5;
 
@@ -39,7 +25,7 @@ const ArticlesContainer = styled(Container)(({ theme }) => ({
 
 const Articles = () => {
   const [currentPage, setCurrentPage] = useState(getDefaultPage());
-  const { error, loading, data } = useQuery(QUERY_ARTICLES);
+  const { error, loading, data } = useQuery(GET_ARTICLES);
 
   if (error) {
     return <Typography>{error.message}</Typography>;
