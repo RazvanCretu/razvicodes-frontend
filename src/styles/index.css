@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+
 @import url('./theme.css');
 
 * {
@@ -7,17 +7,9 @@
   margin: 0;
 }
 
-/* html {
-  transition: 1s;
-} */
-
-
-
 body {
   margin: 0;
   font-family: 'Roboto', sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
 
 a {
@@ -31,19 +23,6 @@ a, a:visited, a:focus, a:link {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
-
-/* GENERAL CLASSES */
-/* =============== */
-
-.hide__scroll {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-}
-
-.hide__scroll::-webkit-scrollbar {
-  display: none;
-}
-
 
 /* ANIMATIONS */
 /* ========== */
@@ -61,37 +40,4 @@ code {
 @keyframes slideInLeft {
   0% { transform: translateX(-100%);opacity: 0;}
   100% { transform: translateX(0%);opacity: 1;}
-}
-
-/* TABLETS */
-@media only screen
-and (min-width: 768px)
-and (max-width: 1400px) {
-  .hide__scroll {
-    -ms-overflow-style: unset;
-    scrollbar-width: unset;
-  }
-    
-  .hide__scroll::-webkit-scrollbar {
-    display: unset;
-  }
-}
-
-/* PHONES */
-@media only screen
-and (max-width: 767px) {
-  .hide__scroll {
-    -ms-overflow-style: initial;
-    scrollbar-width: initial;
-  }
-    
-  .hide__scroll::-webkit-scrollbar {
-    display: initial;
-  }
-}
-
-/* PORTRAIT PHONES */
-@media only screen
-and (max-width: 767px)
-and (orientation: portrait) {
 }

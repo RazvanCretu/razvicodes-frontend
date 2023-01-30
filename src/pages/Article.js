@@ -93,10 +93,12 @@ export const Article = () => {
       }}
     >
       <Hero>
-        <Typography variant="h4">{article.attributes.title}</Typography>
-        <Moment format="YY MMM dddd Do">
+        <Typography variant="h3" fontWeight={500}>
+          {article.attributes.title}
+        </Typography>
+        <Typography component={Moment} format="YY MMM dddd Do">
           {article.attributes.publishedAt}
-        </Moment>
+        </Typography>
       </Hero>
       <Content>
         <Markdown children={article.attributes.content} />

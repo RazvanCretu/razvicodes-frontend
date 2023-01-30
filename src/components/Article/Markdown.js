@@ -3,23 +3,47 @@ import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import remarkMath from "remark-math";
 import rehypeKatex from "rehype-katex";
-import { Typography } from "@mui/material";
-import { useTheme } from "@mui/material/styles";
+import "katex/dist/katex.min.css";
+import { Typography, Box } from "@mui/material";
+import { styled, useTheme } from "@mui/material/styles";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { FaCopy, FaCheck } from "react-icons/fa";
 import {
   oneDark,
   oneLight,
 } from "react-syntax-highlighter/dist/esm/styles/prism";
-import styles from "../../styles/Article/Markdown.module.css";
-import "katex/dist/katex.min.css";
 
 import copy from "copy-to-clipboard";
+
+const Highlighter = styled(SyntaxHighlighter)(({ theme }) => ({
+  lineHeight: "1.1",
+  "& code": {
+    fontSize: "1.05rem",
+    lineHeight: "inherit",
+  },
+}));
+
+const Inline = styled("code")(({ theme }) => ({
+  padding: ".12rem .5rem",
+  color: "var(--text-primary)",
+  borderRadius: "7.5px",
+  backgroundColor: "var(--inlineCode)",
+  fontSize: "1rem",
+}));
+
+const Img = styled("img")(({ theme }) => ({
+  width: "100%",
+  height: "300px",
+  borderRadius: "5px",
+  objectFit: "fill",
+  [theme.breakpoints.up("md")]: {
+    height: "600px",
+  },
+}));
 
 const Code = ({ node, inline, className, children, ...props }) => {
   const [isCopied, setIsCopied] = useState(false);
   const theme = useTheme();
-  // console.log(theme);
 
   useEffect(() => {
     const timeoutId = setTimeout(() => setIsCopied(false), 1500);
@@ -43,34 +67,39 @@ const Code = ({ node, inline, className, children, ...props }) => {
   };
 
   return !inline && match ? (
-    <div
-      style={{
+    <Box
+      sx={{
         position: "relative",
       }}
-      className={styles.Content}
     >
       {document.queryCommandSupported("copy") && (
-        <div className={styles.copy} onClick={handleCopy}>
+        <Box
+          sx={{
+            position: "absolute",
+            right: "10px",
+            top: "10px",
+          }}
+          onClick={handleCopy}
+        >
           {isCopied ? <FaCheck /> : <FaCopy />}
-        </div>
+        </Box>
       )}
-      <SyntaxHighlighter
-        className={styles.Snippet}
+      <Highlighter
+        language={match[1]}
         children={String(children).replace(/\n$/, "")}
         style={theme.palette.mode === "dark" ? oneDark : oneLight}
-        language={match[1]}
         {...props}
       />
-    </div>
+    </Box>
   ) : (
-    <code className={`${className} ${styles.code}`} {...props}>
+    <Inline className={`${className}`} {...props}>
       {children}
-    </code>
+    </Inline>
   );
 };
 
 const Image = ({ node, className, alt, ...props }) => {
-  return <img className={styles.image} alt={alt} {...props} />;
+  return <Img alt={alt} {...props} />;
 };
 
 const components = {
