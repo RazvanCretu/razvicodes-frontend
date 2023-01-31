@@ -15,8 +15,8 @@ const Hero = styled(Box)(({ theme }) => ({
   width: "100%",
   margin: "3rem 0 1rem 0",
   "& h1": {
-    fontSize: "2.7rem",
-    margin: "0 0 0rem 0",
+    fontSize: "4rem",
+    // margin: "0 0 0rem 0",
   },
   "& time": {
     fontSize: "1.3rem",
@@ -93,7 +93,7 @@ export const Article = () => {
       }}
     >
       <Hero>
-        <Typography variant="h3" fontWeight={500}>
+        <Typography variant="h1" fontWeight={500}>
           {article.attributes.title}
         </Typography>
         <Typography component={Moment} format="YY MMM dddd Do">

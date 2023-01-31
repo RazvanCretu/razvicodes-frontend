@@ -4,7 +4,7 @@ import remarkGfm from "remark-gfm";
 import remarkMath from "remark-math";
 import rehypeKatex from "rehype-katex";
 import "katex/dist/katex.min.css";
-import { Typography, Box } from "@mui/material";
+import { Typography, Box, List, ListItem } from "@mui/material";
 import { styled, useTheme } from "@mui/material/styles";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { FaCopy, FaCheck } from "react-icons/fa";
@@ -105,9 +105,33 @@ const Image = ({ node, className, alt, ...props }) => {
 const components = {
   code: Code,
   img: Image,
-  p: ({ node, ...props }) => {
-    return <Typography {...props} sx={{ fontSize: "1.2rem" }} />;
+  ul: ({ node, ordered, ...props }) => {
+    return <List {...props} />;
   },
+  li: ({ node, ordered, ...props }) => {
+    return <ListItem {...props} disableGutters disablePadding />;
+  },
+  p: ({ node, ...props }) => (
+    <Typography {...props} sx={{ fontSize: "1.2rem" }} />
+  ),
+  h1: ({ node, ...props }) => (
+    <Typography variant="h3" fontWeight={500} {...props} />
+  ),
+  h2: ({ node, ...props }) => (
+    <Typography variant="h4" fontWeight={500} {...props} />
+  ),
+  h3: ({ node, ...props }) => (
+    <Typography variant="h5" fontWeight={500} {...props} />
+  ),
+  h4: ({ node, ...props }) => (
+    <Typography variant="h6" fontWeight={500} {...props} />
+  ),
+  h5: ({ node, ...props }) => (
+    <Typography variant="h6" fontWeight={500} {...props} />
+  ),
+  h6: ({ node, ...props }) => (
+    <Typography variant="h6" fontWeight={500} {...props} />
+  ),
 };
 
 const Markdown = ({ children }) => {
