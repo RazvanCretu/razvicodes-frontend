@@ -4,7 +4,17 @@ import remarkGfm from "remark-gfm";
 import remarkMath from "remark-math";
 import rehypeKatex from "rehype-katex";
 import "katex/dist/katex.min.css";
-import { Typography, Box, List, ListItem } from "@mui/material";
+import {
+  Typography,
+  Box,
+  List,
+  ListItem,
+  Table,
+  TableHead,
+  TableRow,
+  TableCell,
+  TableBody,
+} from "@mui/material";
 import { styled, useTheme } from "@mui/material/styles";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { FaCopy, FaCheck } from "react-icons/fa";
@@ -132,6 +142,14 @@ const components = {
   h6: ({ node, ...props }) => (
     <Typography variant="h6" fontWeight={500} {...props} />
   ),
+  table: ({ node, ...props }) => (
+    <Table sx={{ width: "50%", margin: "0 auto" }} {...props} />
+  ),
+  thead: ({ node, isHeader, ...props }) => <TableHead {...props} />,
+  tr: ({ node, isHeader, ...props }) => <TableRow {...props} />,
+  th: ({ node, isHeader, ...props }) => <TableCell {...props} />,
+  tbody: ({ node, ...props }) => <TableBody {...props} />,
+  td: ({ node, isHeader, ...props }) => <TableCell {...props} />,
 };
 
 const Markdown = ({ children }) => {
