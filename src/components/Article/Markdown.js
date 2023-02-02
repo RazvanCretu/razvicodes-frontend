@@ -147,9 +147,12 @@ const components = {
   ),
   thead: ({ node, isHeader, ...props }) => <TableHead {...props} />,
   tr: ({ node, isHeader, ...props }) => <TableRow {...props} />,
-  th: ({ node, isHeader, ...props }) => <TableCell {...props} />,
+  th: ({ node, isHeader, style, ...props }) => <TableCell {...props} />,
   tbody: ({ node, ...props }) => <TableBody {...props} />,
-  td: ({ node, isHeader, ...props }) => <TableCell {...props} />,
+  td: ({ node, isHeader, style, ...props }) => {
+    console.log(isHeader, props);
+    return <TableCell {...props} />;
+  },
 };
 
 const Markdown = ({ children }) => {
