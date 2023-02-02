@@ -150,7 +150,6 @@ const components = {
   th: ({ node, isHeader, style, ...props }) => <TableCell {...props} />,
   tbody: ({ node, ...props }) => <TableBody {...props} />,
   td: ({ node, isHeader, style, ...props }) => {
-    console.log(isHeader, props);
     return <TableCell {...props} />;
   },
 };
