@@ -2,12 +2,14 @@ import { useState } from "react";
 import { Button, Container, Typography } from "@mui/material";
 import { useLocation } from "react-router-dom";
 
+const backend = process.env.STRAPI_BACKEND_URL || "http://localhost:1337/";
+
 const Succes = () => {
   const [err, setError] = useState();
   const location = useLocation();
   const provider = location.pathname.replace("/succes", "");
 
-  fetch(`http://localhost:1337/api/auth${provider}/callback${location.search}`)
+  fetch(`${backend}api/auth${provider}/callback${location.search}`)
     .then((resp) => resp.json())
     .then((data) => {
       if (data.error) {
