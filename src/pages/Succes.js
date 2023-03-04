@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Button, Container, Typography } from "@mui/material";
 import { useLocation } from "react-router-dom";
 
-const backend = process.env.STRAPI_BACKEND_URL || "http://localhost:1337/";
+const backend = process.env.REACT_APP_BACKEND || "http://localhost:1337/";
 
 const Succes = () => {
   const [err, setError] = useState();
