@@ -3,6 +3,7 @@ import { Layout } from "./components/Layout";
 import { Home } from "./pages";
 import Articles from "./pages/Articles";
 import { Article } from "./pages/Article";
+import Succes from "./pages/Succes";
 import { About } from "./pages/About";
 import { NoMatch } from "./pages/404";
 
@@ -14,6 +15,7 @@ function App() {
         <Route index element={<Navigate to="home" replace={true} />} />
         <Route path="home" element={<Home />} />
         <Route path="about" element={<About />} />
+        <Route path="succes/*" element={<Succes />} />
         <Route
           path="blog/*"
           element={

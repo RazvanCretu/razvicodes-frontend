@@ -149,9 +149,7 @@ const components = {
   tr: ({ node, isHeader, ...props }) => <TableRow {...props} />,
   th: ({ node, isHeader, style, ...props }) => <TableCell {...props} />,
   tbody: ({ node, ...props }) => <TableBody {...props} />,
-  td: ({ node, isHeader, style, ...props }) => {
-    return <TableCell {...props} />;
-  },
+  td: ({ node, isHeader, style, ...props }) => <TableCell {...props} />,
 };
 
 const Markdown = ({ children }) => {
