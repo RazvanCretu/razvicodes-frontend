@@ -14,7 +14,7 @@
 }
 
 [data-theme="dark"] {
-    --primary: rgb(31, 31, 45);
+    --primary: #1f1f2d;
     --active: #add8e6;
     --primary-bg: rgb(61, 57, 49);
     --text-primary: #eee;

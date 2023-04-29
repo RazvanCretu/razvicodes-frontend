@@ -14,7 +14,6 @@ const Succes = () => {
     .then((data) => {
       if (data.error) {
         setError(data.error);
-        return;
       }
 
       window.location = `app://succes?token=${data.jwt}`;
