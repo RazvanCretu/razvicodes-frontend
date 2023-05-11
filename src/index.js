@@ -19,11 +19,11 @@ const client = new ApolloClient({
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
 root.render(
-  <Router>
-    <ApolloProvider client={client}>
-      <Theme>
+  <ApolloProvider client={client}>
+    <Theme>
+      <Router>
         <App />
-      </Theme>
-    </ApolloProvider>
-  </Router>
+      </Router>
+    </Theme>
+  </ApolloProvider>
 );
