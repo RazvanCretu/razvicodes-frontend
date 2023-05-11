@@ -13,6 +13,7 @@ export const Layout = () => {
       disableGutters
       sx={{
         backgroundColor: "secondary.main",
+        minHeight: "100vh",
       }}
     >
       <AppBar
