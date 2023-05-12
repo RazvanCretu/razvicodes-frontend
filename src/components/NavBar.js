@@ -1,5 +1,5 @@
 import { NavLink } from "react-router-dom";
-import { AppBar, Box, Button, IconButton, colors } from "@mui/material";
+import { AppBar, Box, Button, IconButton } from "@mui/material";
 import { BsSunFill, BsMoonFill } from "react-icons/bs";
 import { useTheme } from "@mui/material/styles";
 
@@ -36,6 +36,10 @@ const NavBar = () => {
       <Box
         sx={{
           display: "inline-block",
+          m: "0 5rem",
+          [theme.breakpoints.down("sm")]: {
+            m: "0 auto",
+          },
           "& .active": {
             color:
               theme.palette.mode === "dark"
@@ -43,7 +47,6 @@ const NavBar = () => {
                 : "rgba(0,0,0,.6)",
           },
         }}
-        m="0 auto"
       >
         <Button
           component={NavLink}
