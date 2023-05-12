@@ -1,9 +1,8 @@
 import React, { useState } from "react";
-import { Container, Typography, Pagination } from "@mui/material";
-import { styled } from "@mui/material/styles";
 import ArticlesList from "../components/Articles/List";
 import Loader from "../components/Loader";
-
+import { Container, Typography, Pagination } from "@mui/material";
+import { styled } from "@mui/material/styles";
 import { useQuery } from "@apollo/client";
 import { GET_ARTICLES } from "../queries";
 
