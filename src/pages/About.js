@@ -16,6 +16,7 @@ import {
   SiGraphql,
   SiElectron,
   SiRedux,
+  SiDocker,
 } from "react-icons/si";
 import DownloadCV from "../components/About/DownloadCV";
 
@@ -46,7 +47,7 @@ const Container = styled(MUIContainer)(({ theme }) => ({
   alignItems: "center",
   justifyContent: "center",
   [theme.breakpoints.down("md")]: {
-    padding: "7vh 2rem 0",
+    padding: "0 2rem 7vh",
   },
 }));
 
@@ -71,15 +72,18 @@ export const About = () => {
   }
 
   return (
-    <Container>
+    <Container
+      sx={{
+        "& p": {
+          fontSize: "1.2rem",
+          margin: "1rem 0",
+        },
+      }}
+    >
       <Section
         component="section"
         sx={{
           alignItems: "unset",
-          "& p": {
-            fontSize: "1.2rem",
-            margin: "1rem 0",
-          },
         }}
       >
         <Typography
@@ -97,21 +101,36 @@ export const About = () => {
         >
           About Me
         </Typography>
-        <Typography>I am a self-taught junior web developer.</Typography>
+        <Typography
+          sx={{
+            span: {
+              marginRight: "1rem",
+            },
+          }}
+        >
+          <span>👋</span>I am a self-taught Software Developer.
+        </Typography>
         <Typography>
+          Currently I have 3.5 years of experience as a Data Engineer and I'm
+          looking for a career reconversion into Web Development.
+        </Typography>
+        {/* <Typography>
           I have started my journey learning frontend technologies such as
-          React.js and GraphQL and along the way I have also managed to
+          React.js and Next.js and along the way I have also managed to
           integrate global state management tools as Redux and Redux Toolkit.
         </Typography>
         <Typography>
           I wish to dive deeper in the domain and learn backend technologies
           too. Thus being able to build cool fullstack web applications or even
           cross-platform applications with Electron.js .
-        </Typography>
+        </Typography> */}
       </Section>
       <Section component="section">
         <Typography variant="h4" sx={{ fontWeight: 500, m: "2rem 0" }}>
           Technologies
+        </Typography>
+        <Typography>
+          These are the technologies that I enjoy working with the most.
         </Typography>
         <Box
           sx={{
@@ -119,7 +138,7 @@ export const About = () => {
             alignItems: "center",
             flexWrap: "wrap",
             justifyContent: "space-evenly",
-            margin: "3rem",
+            margin: "1rem",
             "& svg": {
               width: "48px",
               height: "48px",
@@ -127,36 +146,30 @@ export const About = () => {
             },
           }}
         >
+          <SiPython />
           <SiJavascript />
           <SiReact />
-          <SiElectron />
           <SiRedux />
           <SiGraphql />
           <SiNodedotjs />
-          <SiGit />
-          <SiHeroku />
+          <SiElectron />
           <SiMysql />
           <SiPostgresql />
-          <SiPython />
+          <SiGit />
+          <SiHeroku />
+          <SiDocker />
         </Box>
       </Section>
       <Section component="section">
         <Typography variant="h4" sx={{ fontWeight: 500, m: "2rem 0" }}>
           Contact
         </Typography>
-        <Typography
-          sx={{
-            fontSize: "1.2rem",
-          }}
-        >
+        <Typography>
           Do you think that we can work alongside or have a cool project that I
           could work on?
         </Typography>
         <Box sx={{ margin: "5rem 0rem" }}>
           <Typography
-            component="a"
-            href="mailto:razvan.cretu97@gmail.com"
-            rel="noreferrer"
             sx={{
               padding: "0.75rem 0.5rem",
               border: ".2rem solid var(--text-secondary)",
@@ -164,6 +177,9 @@ export const About = () => {
               marginRight: "2rem",
               fontWeight: 600,
             }}
+            component="a"
+            href="mailto:razvan.cretu97@gmail.com"
+            rel="noreferrer"
           >
             Email Me
           </Typography>
