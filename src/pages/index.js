@@ -1,14 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 import { FaLinkedin, FaFacebook, FaGithub } from "react-icons/fa";
-// import Dropdown from "../components/Dropdown";
-// import Burger from "../components/Burger";
 import { Box, Container, Typography, Link } from "@mui/material";
 
 export const Home = () => {
-  const [isOpen, setIsOpen] = useState(false);
-
-  const handleSwitch = () => setIsOpen(!isOpen);
-
   return (
     <Container
       sx={{
@@ -29,8 +23,6 @@ export const Home = () => {
           },
         }}
       >
-        {/* <Dropdown /> */}
-        {/* <Burger isOpen={isOpen} handleSwitch={handleSwitch} /> */}
         <Typography
           sx={{
             fontSize: "1.1rem",
