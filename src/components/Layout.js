@@ -1,11 +1,9 @@
 import React from "react";
-import { NavLink, Outlet } from "react-router-dom";
-import { useTheme } from "@mui/material/styles";
-import { Container, AppBar, Box, Button, IconButton } from "@mui/material";
-import { BsSunFill, BsMoonFill } from "react-icons/bs";
+import { Outlet } from "react-router-dom";
+import { Container } from "@mui/material";
+import NavBar from "./NavBar";
 
 export const Layout = () => {
-  const theme = useTheme();
   return (
     <Container
       component="main"
@@ -16,36 +14,7 @@ export const Layout = () => {
         minHeight: "100vh",
       }}
     >
-      <AppBar
-        component="nav"
-        sx={{
-          height: "7vh",
-          flexDirection: "row",
-          alignItems: "center",
-          justifyContent: "space-between",
-          backgroundColor:
-            theme.palette.mode === "light"
-              ? "secondary.light"
-              : "secondary.dark",
-        }}
-      >
-        <Box sx={{ display: "flex", alignItems: "center", m: "0 3rem" }}>
-          <IconButton onClick={theme.toggler} size="small">
-            {theme.palette.mode === "dark" ? <BsMoonFill /> : <BsSunFill />}
-          </IconButton>
-        </Box>
-        <Box m="0 3rem">
-          <Button component={NavLink} to="/home" className="active">
-            Home
-          </Button>
-          <Button component={NavLink} to="/blog" className="active">
-            Blog
-          </Button>
-          <Button component={NavLink} to="/about" className="active">
-            About
-          </Button>
-        </Box>
-      </AppBar>
+      <NavBar />
       <Outlet />
     </Container>
   );
