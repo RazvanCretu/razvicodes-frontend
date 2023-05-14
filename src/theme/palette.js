@@ -8,9 +8,6 @@ export const light = {
       main: "#ccc5b9",
     },
   },
-  typography: {
-    fontFamily: ["Blender", "Roboto"].join(","),
-  },
 };
 
 export const dark = {
@@ -23,19 +20,4 @@ export const dark = {
       main: "#1f1f2d",
     },
   },
-  typography: {
-    fontFamily: ["Blender", "Roboto"].join(","),
-  },
 };
-
-// black: {
-//     100: "#d2d2d5",
-//     200: "#a5a5ab",
-//     300: "#797981",
-//     400: "#4c4c57",
-//     500: "#1f1f2d",
-//     600: "#191924",
-//     700: "#13131b",
-//     800: "#0c0c12",
-//     900: "#060609"
-// },

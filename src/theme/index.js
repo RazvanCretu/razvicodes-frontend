@@ -15,7 +15,13 @@ const Theme = ({ children }) => {
   }, [theme]);
 
   const themeMode = useMemo(
-    () => createTheme(theme === "light" ? light : dark),
+    () =>
+      createTheme({
+        ...(theme === "light" ? light : dark),
+        typography: {
+          fontFamily: '"Roboto", "Blender"',
+        },
+      }),
     [theme]
   );
 
@@ -25,9 +31,13 @@ const Theme = ({ children }) => {
   if (!mounted) return <div style={{ visibility: "hidden" }} />;
 
   console.log(themeMode);
-
   return (
-    <ThemeProvider theme={{ ...themeMode, toggler }}>
+    <ThemeProvider
+      theme={{
+        ...themeMode,
+        toggler,
+      }}
+    >
       <CssBaseline />
       {Globals}
       {children}
