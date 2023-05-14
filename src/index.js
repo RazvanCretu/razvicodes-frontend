@@ -11,6 +11,8 @@ import "@fontsource/roboto/400.css";
 import "@fontsource/roboto/500.css";
 import "@fontsource/roboto/700.css";
 
+import "./index.css";
+
 const client = new ApolloClient({
   uri: `${process.env.REACT_APP_BACKEND_GRAPHQL}`,
   cache: new InMemoryCache(),
