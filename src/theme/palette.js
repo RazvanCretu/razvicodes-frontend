@@ -8,6 +8,9 @@ export const light = {
       main: "#ccc5b9",
     },
   },
+  typography: {
+    fontFamily: ["Blender", "Roboto"].join(","),
+  },
 };
 
 export const dark = {
@@ -19,6 +22,9 @@ export const dark = {
     secondary: {
       main: "#1f1f2d",
     },
+  },
+  typography: {
+    fontFamily: ["Blender", "Roboto"].join(","),
   },
 };
 

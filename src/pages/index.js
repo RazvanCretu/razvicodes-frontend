@@ -40,6 +40,7 @@ export const Home = () => {
           variant="h3"
           sx={{
             animation: "slideInRight .75s",
+            fontWeight: 600,
             "@keyframes slideInRight": {
               "0%": { transform: "translateX(100%)", opacity: 0 },
               "100%": { transform: "translateX(0%)", opacity: 1 },
@@ -51,6 +52,7 @@ export const Home = () => {
         <Typography
           variant="h3"
           sx={{
+            fontWeight: 600,
             animation: "slideInLeft 1.5s",
             "@keyframes slideInLeft": {
               "0%": { transform: "translateX(-100%)", opacity: 0 },
