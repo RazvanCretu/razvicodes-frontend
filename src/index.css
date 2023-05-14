@@ -1,0 +1,41 @@
+@font-face {
+    font-family: "Blender";
+    font-weight: 300;
+    font-style: normal;
+    src: url('fonts/Blender-Pro-Thin.ttf') format('truetype');
+};
+
+@font-face {
+    font-family: "Blender";
+    font-weight: 400;
+    font-style: normal;
+    src: url('fonts/Blender-Pro-Book.ttf') format('truetype');
+};
+
+@font-face {
+    font-family: "Blender";
+    font-weight: 400;
+    font-style: italic;
+    src: url('fonts/Blender-Pro-Book-Italic.ttf') format('truetype');
+};
+
+@font-face {
+    font-family: "Blender";
+    font-weight: 500;
+    font-style: normal;
+    src: url('fonts/Blender-Pro-Medium.ttf') format('truetype');
+};
+
+@font-face {
+    font-family: "Blender";
+    font-weight: 600;
+    font-style: normal;
+    src: url('fonts/Blender-Pro-Bold.ttf') format('truetype');
+};
+
+@font-face {
+    font-family: "Blender";
+    font-weight: 700;
+    font-style: normal;
+    src: url('fonts/Blender-Pro-Heavy.ttf') format('truetype');
+}
