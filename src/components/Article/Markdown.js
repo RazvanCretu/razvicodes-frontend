@@ -24,6 +24,7 @@ import {
 } from "react-syntax-highlighter/dist/esm/styles/prism";
 
 import copy from "copy-to-clipboard";
+import { Title1, Title2, Title3, Title4, Title5, Title6 } from "../Titles";
 
 const Highlighter = styled(SyntaxHighlighter)(({ theme }) => ({
   lineHeight: "1.1",
@@ -35,9 +36,9 @@ const Highlighter = styled(SyntaxHighlighter)(({ theme }) => ({
 
 const Inline = styled("code")(({ theme }) => ({
   padding: ".12rem .5rem",
-  color: "var(--text-primary)",
+  color: "cyan",
   borderRadius: "7.5px",
-  backgroundColor: "var(--inlineCode)",
+  backgroundColor: "#333",
   fontSize: "1rem",
 }));
 
@@ -124,24 +125,27 @@ const components = {
   p: ({ node, ...props }) => (
     <Typography {...props} sx={{ fontSize: "1.2rem" }} />
   ),
-  h1: ({ node, ...props }) => (
-    <Typography variant="h3" fontWeight={500} {...props} />
-  ),
-  h2: ({ node, ...props }) => (
-    <Typography variant="h4" fontWeight={500} {...props} />
-  ),
-  h3: ({ node, ...props }) => (
-    <Typography variant="h5" fontWeight={500} {...props} />
-  ),
-  h4: ({ node, ...props }) => (
-    <Typography variant="h6" fontWeight={500} {...props} />
-  ),
-  h5: ({ node, ...props }) => (
-    <Typography variant="h6" fontWeight={500} {...props} />
-  ),
-  h6: ({ node, ...props }) => (
-    <Typography variant="h6" fontWeight={500} {...props} />
-  ),
+  h1: ({ node, ...props }) => <Title2 {...props} />,
+  h2: ({ node, ...props }) => <Title3 {...props} />,
+  h3: ({ node, ...props }) => <Title4 {...props} />,
+  h4: ({ node, ...props }) => <Title5 {...props} />,
+  h5: ({ node, ...props }) => <Title6 {...props} />,
+  h6: ({ node, ...props }) => <Title6 {...props} />,
+  // h2: ({ node, ...props }) => (
+  //   <Typography variant="h4" fontWeight={500} {...props} />
+  // ),
+  // h3: ({ node, ...props }) => (
+  //   <Typography variant="h5" fontWeight={500} {...props} />
+  // ),
+  // h4: ({ node, ...props }) => (
+  //   <Typography variant="h6" fontWeight={500} {...props} />
+  // ),
+  // h5: ({ node, ...props }) => (
+  //   <Typography variant="h6" fontWeight={500} {...props} />
+  // ),
+  // h6: ({ node, ...props }) => (
+  //   <Typography variant="h6" fontWeight={500} {...props} />
+  // ),
   table: ({ node, ...props }) => (
     <Table sx={{ width: "50%", margin: "0 auto" }} {...props} />
   ),

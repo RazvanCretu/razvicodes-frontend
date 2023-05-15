@@ -8,16 +8,13 @@ import { useQuery } from "@apollo/client";
 import { GET_ARTICLE_BY_SLUG } from "../queries";
 import { Box, Container, Typography } from "@mui/material";
 import { styled } from "@mui/material/styles";
+import { Title1 } from "../components/Titles";
 
 Moment.globalLocal = true;
 
 const Hero = styled(Box)(({ theme }) => ({
   width: "100%",
   margin: "3rem 0 1rem 0",
-  "& h1": {
-    fontSize: "4rem",
-    // margin: "0 0 0rem 0",
-  },
   "& time": {
     fontSize: "1.3rem",
     fontStyle: "italic",
@@ -43,6 +40,9 @@ const Content = styled(Box)(({ theme }) => ({
   },
   "& a": {
     color: theme.palette.success.light,
+  },
+  "& code": {
+    fontFamily: "Oxanium !important",
   },
   "& blockquote": {
     fontSize: "1.2em",
@@ -93,9 +93,7 @@ export const Article = () => {
       }}
     >
       <Hero>
-        <Typography variant="h1" fontWeight={500}>
-          {article.attributes.title}
-        </Typography>
+        <Title1 variant="h1">{article.attributes.title}</Title1>
         <Typography component={Moment} format="YY MMM dddd Do">
           {article.attributes.publishedAt}
         </Typography>
