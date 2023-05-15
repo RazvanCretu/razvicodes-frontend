@@ -3,6 +3,14 @@ import { ThemeProvider, createTheme } from "@mui/material/styles";
 import { light, dark } from "./palette";
 import CssBaseline from "@mui/material/CssBaseline";
 import Globals from "./globals";
+import BlenderProBook from "../fonts/Blender-Pro-Book.ttf";
+
+const fonts = `@font-face {
+  font-family: "Blender";
+  font-weight: 400;
+  font-style: normal;
+  src: local('Blender-Pro-Book'), url(${BlenderProBook}) format('truetype');
+}`;
 
 const Theme = ({ children }) => {
   const [theme, setTheme] = useState(getDefaultTheme());
@@ -19,7 +27,12 @@ const Theme = ({ children }) => {
       createTheme({
         ...(theme === "light" ? light : dark),
         typography: {
-          fontFamily: '"Roboto", "Blender"',
+          fontFamily: '"Blender", "Roboto"',
+        },
+        components: {
+          MuiCssBaseline: {
+            styleOverrides: `${fonts}`,
+          },
         },
       }),
     [theme]
