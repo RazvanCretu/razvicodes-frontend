@@ -1,7 +1,7 @@
 import { Typography } from "@mui/material";
 import { styled } from "@mui/material/styles";
 
-const StyledTypography = styled(Typography)({
+const StyledTypography = styled(Typography)(({ theme }) => ({
   width: "100%",
   fontWeight: "bold",
   "::after": {
@@ -9,12 +9,12 @@ const StyledTypography = styled(Typography)({
     width: "100%",
     height: "6px",
     display: "block",
-    backgroundColor: "white",
+    backgroundColor: theme.palette.text.main,
     clipPath:
       "polygon(0 0, 0 100%, 10% 100%, calc(10% + 4px) 2px, 100% 2px, 100% 0)",
   },
   "&.MuiTypography-h1": {},
-});
+}));
 
 export const Title1 = ({ ...props }) => (
   <StyledTypography variant="h1" {...props} />

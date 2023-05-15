@@ -24,10 +24,10 @@ import {
 } from "react-syntax-highlighter/dist/esm/styles/prism";
 
 import copy from "copy-to-clipboard";
-import { Title1, Title2, Title3, Title4, Title5, Title6 } from "../Titles";
+import { Title2, Title3, Title4, Title5, Title6 } from "../Titles";
 
 const Highlighter = styled(SyntaxHighlighter)(({ theme }) => ({
-  lineHeight: "1.1",
+  lineHeight: "1 !important",
   "& code": {
     fontSize: "1.05rem",
     lineHeight: "inherit",
@@ -49,6 +49,43 @@ const Img = styled("img")(({ theme }) => ({
   objectFit: "fill",
   [theme.breakpoints.up("md")]: {
     height: "600px",
+  },
+}));
+
+const TableContainer = styled(Box)(({ theme }) => ({
+  display: "flex",
+  margin: "0 auto",
+  [theme.breakpoints.down("sm")]: {
+    overflowX: "scroll",
+  },
+}));
+
+const StyledTable = styled(Table)(({ theme }) => ({
+  display: "inline-block",
+  width: "unset",
+  margin: "0 auto",
+  padding: "0 !important",
+  border: "none !important",
+  borderCollapse: "collapse",
+  "& thead th": {
+    borderBottomWidth: "2px",
+  },
+  "& th,& td": {
+    border: "1px solid black",
+    padding: "0.5rem 0.75rem",
+  },
+  "&::after,&::before": {
+    content: "' '",
+    width: "100%",
+    height: "6px",
+    display: "block",
+    backgroundColor: "black",
+    position: "relative",
+    clipPath: "polygon(60% 0, calc(60% + 6px) 100%, 100% 100%, 100% 0)",
+  },
+  "&::before": {
+    clipPath:
+      "polygon(0 100%, 100% 100%, 100% 0, 80% 0, calc(80% - 6px) 100%, 30% 100%, calc(30% - 6px) 0, 6px 0);",
   },
 }));
 
@@ -135,13 +172,31 @@ const components = {
   //   <Typography variant="h6" fontWeight={500} {...props} />
   // ),
   table: ({ node, ...props }) => (
-    <Table sx={{ width: "50%", margin: "0 auto" }} {...props} />
+    <TableContainer>
+      <StyledTable {...props} />
+    </TableContainer>
   ),
   thead: ({ node, isHeader, ...props }) => <TableHead {...props} />,
-  tr: ({ node, isHeader, ...props }) => <TableRow {...props} />,
-  th: ({ node, isHeader, style, ...props }) => <TableCell {...props} />,
   tbody: ({ node, ...props }) => <TableBody {...props} />,
-  td: ({ node, isHeader, style, ...props }) => <TableCell {...props} />,
+  tr: ({ node, isHeader, ...props }) => <TableRow {...props} />,
+  th: ({ node, isHeader, style, ...props }) => (
+    <TableCell
+      sx={{
+        textAlign: "center",
+        fontWeight: "bold",
+        fontSize: "1rem",
+      }}
+      {...props}
+    />
+  ),
+  td: ({ node, isHeader, style, ...props }) => (
+    <TableCell
+      sx={{
+        fontSize: "1rem",
+      }}
+      {...props}
+    />
+  ),
 };
 
 const Markdown = ({ children }) => {
