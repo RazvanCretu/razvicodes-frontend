@@ -12,20 +12,35 @@ import { Title1 } from "../components/Titles";
 
 Moment.globalLocal = true;
 
+const ArticleContainer = styled(Container)(({ theme }) => ({
+  minHeight: "100%",
+  padding: "7vh 1rem 1rem",
+  [theme.breakpoints.down("sm")]: {
+    padding: "1rem 1rem 7vh",
+  },
+}));
+
 const Hero = styled(Box)(({ theme }) => ({
   width: "100%",
-  margin: "3rem 0 1rem 0",
-  "& time": {
+  margin: "2rem 0",
+  h1: {
+    lineHeight: 1,
+    marginBottom: ".75rem",
+  },
+  time: {
     fontSize: "1.3rem",
     fontStyle: "italic",
+  },
+  [theme.breakpoints.down("sm")]: {
+    h1: {
+      fontSize: "4.2rem",
+    },
   },
 }));
 
 const Content = styled(Box)(({ theme }) => ({
   fontSize: "1.2rem",
   fontWeight: 400,
-  lineHeight: "1.5rem",
-  "& h1": { margin: "3rem 0" },
   "& h2,h3,h4,h5,h6": {
     margin: "1.5rem 0",
   },
@@ -67,6 +82,11 @@ const Content = styled(Box)(({ theme }) => ({
       top: "-10px",
     },
   },
+  [theme.breakpoints.down("sm")]: {
+    p: {
+      lineHeight: 1.2,
+    },
+  },
 }));
 
 export const Article = () => {
@@ -86,12 +106,7 @@ export const Article = () => {
   const article = data.articles.data[0];
 
   return (
-    <Container
-      sx={{
-        minHeight: "100%",
-        padding: "7vh 1rem 1rem",
-      }}
-    >
+    <ArticleContainer>
       <Hero>
         <Title1 variant="h1">{article.attributes.title}</Title1>
         <Typography component={Moment} format="YY MMM dddd Do">
@@ -101,6 +116,6 @@ export const Article = () => {
       <Content>
         <Markdown children={article.attributes.content} />
       </Content>
-    </Container>
+    </ArticleContainer>
   );
 };

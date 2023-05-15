@@ -131,18 +131,6 @@ const components = {
   h4: ({ node, ...props }) => <Title5 {...props} />,
   h5: ({ node, ...props }) => <Title6 {...props} />,
   h6: ({ node, ...props }) => <Title6 {...props} />,
-  // h2: ({ node, ...props }) => (
-  //   <Typography variant="h4" fontWeight={500} {...props} />
-  // ),
-  // h3: ({ node, ...props }) => (
-  //   <Typography variant="h5" fontWeight={500} {...props} />
-  // ),
-  // h4: ({ node, ...props }) => (
-  //   <Typography variant="h6" fontWeight={500} {...props} />
-  // ),
-  // h5: ({ node, ...props }) => (
-  //   <Typography variant="h6" fontWeight={500} {...props} />
-  // ),
   // h6: ({ node, ...props }) => (
   //   <Typography variant="h6" fontWeight={500} {...props} />
   // ),
