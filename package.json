@@ -6,6 +6,7 @@
     "@apollo/client": "^3.7.1",
     "@emotion/react": "^11.10.5",
     "@emotion/styled": "^11.10.5",
+    "@fontsource/oxanium": "^4.5.10",
     "@fontsource/roboto": "^4.5.8",
     "@mui/material": "^5.11.7",
     "@testing-library/jest-dom": "^5.16.5",

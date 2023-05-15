@@ -11,7 +11,10 @@ import "@fontsource/roboto/400.css";
 import "@fontsource/roboto/500.css";
 import "@fontsource/roboto/700.css";
 
-import "./index.css";
+import "@fontsource/oxanium/300.css";
+import "@fontsource/oxanium/400.css";
+import "@fontsource/oxanium/500.css";
+import "@fontsource/oxanium/700.css";
 
 const client = new ApolloClient({
   uri: `${process.env.REACT_APP_BACKEND_GRAPHQL}`,
