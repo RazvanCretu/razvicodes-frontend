@@ -14,8 +14,9 @@ const NavBar = () => {
         flexDirection: "row",
         alignItems: "center",
         justifyContent: "space-between",
-        backgroundColor:
-          theme.palette.mode === "light" ? "secondary.light" : "secondary.dark",
+        color: "text.main",
+        backgroundColor: "background.main",
+        backgroundImage: "unset",
         [theme.breakpoints.down("sm")]: {
           bottom: 0,
           top: "unset",
@@ -29,7 +30,7 @@ const NavBar = () => {
           m: "0 3rem",
         }}
       >
-        <IconButton onClick={theme.toggler} size="small">
+        <IconButton color="inherit" onClick={theme.toggler} size="small">
           {theme.palette.mode === "dark" ? <BsMoonFill /> : <BsSunFill />}
         </IconButton>
       </Box>
@@ -43,8 +44,8 @@ const NavBar = () => {
           "& .active": {
             color:
               theme.palette.mode === "dark"
-                ? "rgba(255,255,255,.6)"
-                : "rgba(0,0,0,.6)",
+                ? "rgba(255,255,255,.5)"
+                : "rgba(0,0,0,.5)",
           },
         }}
       >

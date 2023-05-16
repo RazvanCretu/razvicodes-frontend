@@ -14,19 +14,37 @@ import {
   TableRow,
   TableCell,
   TableBody,
+  IconButton,
 } from "@mui/material";
 import { styled, useTheme } from "@mui/material/styles";
-import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
+import SyntaxHighlighter from "react-syntax-highlighter";
 import { FaCopy, FaCheck } from "react-icons/fa";
 import {
   oneDark,
   oneLight,
 } from "react-syntax-highlighter/dist/esm/styles/prism";
+import {
+  solarizedDark,
+  solarizedLight,
+  railscasts,
+  androidstudio,
+  dracula,
+  atomOneDark,
+  atomOneLight,
+} from "react-syntax-highlighter/dist/esm/styles/hljs";
 
 import copy from "copy-to-clipboard";
 import { Title2, Title3, Title4, Title5, Title6 } from "../Titles";
+import { atomOneDarkReasonable } from "react-syntax-highlighter/dist/cjs/styles/hljs";
 
 const Highlighter = styled(SyntaxHighlighter)(({ theme }) => ({
+  "::before": {
+    content: "attr(data-language)",
+    display: "block",
+    color: theme.palette.text.opposite,
+    textShadow: `${theme.palette.text.shadow} 1px 1px`,
+    marginBottom: "1rem",
+  },
   lineHeight: "1 !important",
   "& code": {
     fontSize: "1.05rem",
@@ -35,9 +53,9 @@ const Highlighter = styled(SyntaxHighlighter)(({ theme }) => ({
 }));
 
 const Inline = styled("code")(({ theme }) => ({
-  padding: ".12rem .5rem",
+  padding: ".3rem .5rem",
   color: "cyan",
-  borderRadius: "7.5px",
+  borderRadius: "5px",
   backgroundColor: "#333",
   fontSize: "1rem",
 }));
@@ -71,7 +89,7 @@ const StyledTable = styled(Table)(({ theme }) => ({
     borderBottomWidth: "2px",
   },
   "& th,& td": {
-    border: "1px solid black",
+    border: `1px solid ${theme.palette.text.main}`,
     padding: "0.5rem 0.75rem",
   },
   "&::after,&::before": {
@@ -79,7 +97,7 @@ const StyledTable = styled(Table)(({ theme }) => ({
     width: "100%",
     height: "6px",
     display: "block",
-    backgroundColor: "black",
+    backgroundColor: `${theme.palette.text.main}`,
     position: "relative",
     clipPath: "polygon(60% 0, calc(60% + 6px) 100%, 100% 100%, 100% 0)",
   },
@@ -118,24 +136,28 @@ const Code = ({ node, inline, className, children, ...props }) => {
     <Box
       sx={{
         position: "relative",
+        clipPath:
+          "polygon(0 0, 0 100%, calc(100% - 3rem) 100%, 100% calc(100% - 3rem), 100% 0);",
       }}
     >
       {document.queryCommandSupported("copy") && (
-        <Box
+        <IconButton
           sx={{
             position: "absolute",
             right: "10px",
             top: "10px",
           }}
           onClick={handleCopy}
+          size="small"
         >
           {isCopied ? <FaCheck /> : <FaCopy />}
-        </Box>
+        </IconButton>
       )}
       <Highlighter
         language={match[1]}
         children={String(children).replace(/\n$/, "")}
-        style={theme.palette.mode === "dark" ? oneDark : oneLight}
+        style={theme.palette.mode === "dark" ? solarizedLight : solarizedDark}
+        data-language={match[1]}
         {...props}
       />
     </Box>

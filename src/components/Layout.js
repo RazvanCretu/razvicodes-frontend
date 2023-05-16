@@ -10,7 +10,7 @@ export const Layout = () => {
       maxWidth={false}
       disableGutters
       sx={{
-        backgroundColor: "secondary.main",
+        backgroundColor: "background.main",
         minHeight: "100vh",
       }}
     >
