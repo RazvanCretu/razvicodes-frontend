@@ -12,8 +12,9 @@ export const light = {
     },
     text: {
       main: "#000",
-      shadow: "cyan",
-      opposite: "#f8ef02",
+
+      shadow: "red",
+      opposite: "#000",
     },
     nav: {
       main: "#131314",
@@ -35,8 +36,8 @@ export const dark = {
     },
     text: {
       main: "#fdf4f4",
-      shadow: "red",
-      opposite: "#000",
+      shadow: "cyan",
+      opposite: "#f8ef02",
     },
     nav: {
       main: "#f8ef02",

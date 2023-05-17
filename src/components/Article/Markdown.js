@@ -17,7 +17,7 @@ import {
   IconButton,
 } from "@mui/material";
 import { styled, useTheme } from "@mui/material/styles";
-import SyntaxHighlighter from "react-syntax-highlighter";
+import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { FaCopy, FaCheck } from "react-icons/fa";
 import {
   oneDark,
@@ -156,7 +156,7 @@ const Code = ({ node, inline, className, children, ...props }) => {
       <Highlighter
         language={match[1]}
         children={String(children).replace(/\n$/, "")}
-        style={theme.palette.mode === "dark" ? solarizedLight : solarizedDark}
+        style={theme.palette.mode === "dark" ? oneDark : oneLight}
         data-language={match[1]}
         {...props}
       />

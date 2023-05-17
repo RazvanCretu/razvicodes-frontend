@@ -20,6 +20,9 @@ const ArticlesContainer = styled(Container)(({ theme }) => ({
   [theme.breakpoints.up("md")]: {
     maxWidth: "1000px",
   },
+  [theme.breakpoints.down("sm")]: {
+    padding: "3rem 5px 7vh",
+  },
 }));
 
 const Articles = () => {
@@ -61,8 +64,8 @@ const Articles = () => {
         onChange={handlePageChange}
         sx={{
           position: "absolute",
-          bottom: 0,
-          marginBottom: "3rem",
+          bottom: "10vh",
+          marginTop: "3rem",
         }}
       />
     </ArticlesContainer>

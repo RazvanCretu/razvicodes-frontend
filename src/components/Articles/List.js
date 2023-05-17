@@ -1,15 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import {
-  List,
-  ListItem,
-  Card,
-  CardActions,
-  Divider,
-  Typography,
-  Button,
-  Box,
-} from "@mui/material";
+import { List, ListItem, Typography, ButtonBase, Box } from "@mui/material";
 import Moment from "react-moment";
 import "moment-timezone";
 
@@ -27,16 +18,32 @@ const ArticlesList = ({ articles }) => {
               opacity: "0%",
               transform: "translateX(100%)",
               animation: animate(i),
+              display: "inline-block",
+              borderBottom: "1px solid black",
+              marginBottom: "1rem",
+              "::after": {
+                content: "' '",
+                width: "100%",
+                height: "6px",
+                display: "block",
+                backgroundColor: "#000",
+                position: "relative",
+                transform: "translateY(100%)",
+                clipPath:
+                  "polygon(60% 0, calc(60% + 6px) 100%, 100% 100%, 100% 0)",
+              },
             }}
             disableGutters
+            disablePadding
             key={id}
           >
-            <Card
+            <Box
               sx={{
                 display: "flex",
-                padding: "1rem",
+                padding: "0 1rem",
                 minWidth: "100%",
                 justifyContent: "space-between",
+                alignItems: "center",
                 "& .MuiTypography-h4": {
                   fontSize: { xs: "1.2rem", sm: "1.5rem" },
                 },
@@ -55,17 +62,20 @@ const ArticlesList = ({ articles }) => {
                   {publishedAt}
                 </Typography>
               </Box>
-              <Divider
-                orientation="vertical"
-                flexItem
-                sx={{ margin: "0 1rem 0 auto" }}
-              />
-              <CardActions>
-                <Button variant="contained" component={Link} to={slug}>
-                  Read
-                </Button>
-              </CardActions>
-            </Card>
+              <ButtonBase
+                sx={{
+                  fontWeight: "bold",
+                  padding: ".5rem 1rem",
+                }}
+                // disableFocusRipple
+                // disableTouchRipple
+                variant="contained"
+                component={Link}
+                to={slug}
+              >
+                Read
+              </ButtonBase>
+            </Box>
           </ListItem>
         )
       )}
