@@ -19,11 +19,11 @@ export const Home = () => {
           alignItems: "center",
           flexDirection: "column",
           h3: {
-            fontSize: "calc(3rem + .5vmin)",
+            fontSize: "calc(2.5rem + .5vmin)",
           },
         }}
       >
-        <Typography
+        {/* <Typography
           sx={{
             fontSize: "1.1rem",
             margin: "0 0 2rem 0",
@@ -35,33 +35,57 @@ export const Home = () => {
           }}
         >
           Hi 👋, I am Razvan
-        </Typography>
-        <Typography
-          variant="h3"
+        </Typography> */}
+        <Box
           sx={{
-            animation: "slideInRight .75s",
-            fontWeight: 600,
-            "@keyframes slideInRight": {
-              "0%": { transform: "translateX(100%)", opacity: 0 },
-              "100%": { transform: "translateX(0%)", opacity: 1 },
+            color: "text.opposite",
+            textShadow: "cyan 1px 1px, darkcyan 2px 2px",
+            "& .MuiTypography-root": {
+              fontFamily: "Cyberpunk",
+              textTransform: "uppercase",
+              letterSpacing: "-.25em",
+            },
+            "& span:first-of-type": {
+              fontSize: "1.5em",
+              position: "relative",
+              top: "-.2em",
+            },
+            "& span:last-of-type": {
+              fontSize: "1.5em",
+              position: "relative",
+              bottom: "-.2em",
             },
           }}
         >
-          A Self-Taught
-        </Typography>
-        <Typography
-          variant="h3"
-          sx={{
-            fontWeight: 600,
-            animation: "slideInLeft 1.5s",
-            "@keyframes slideInLeft": {
-              "0%": { transform: "translateX(-100%)", opacity: 0 },
-              "100%": { transform: "translateX(0%)", opacity: 1 },
-            },
-          }}
-        >
-          Web Developer
-        </Typography>
+          <Typography
+            variant="h3"
+            sx={{
+              animation: "slideInRight .75s",
+              fontWeight: 600,
+              "@keyframes slideInRight": {
+                "0%": { transform: "translateX(100%)", opacity: 0 },
+                "100%": { transform: "translateX(0%)", opacity: 1 },
+              },
+            }}
+          >
+            <span>R</span>
+            azvi
+            <span>C</span>
+            odes
+          </Typography>
+          {/* <Typography
+            variant="h3"
+            sx={{
+              fontWeight: 600,
+              animation: "slideInLeft 1.5s",
+              "@keyframes slideInLeft": {
+                "0%": { transform: "translateX(-100%)", opacity: 0 },
+                "100%": { transform: "translateX(0%)", opacity: 1 },
+              },
+            }}
+          > */}
+          {/* </Typography> */}
+        </Box>
         <Box
           sx={{
             margin: "5rem 0",

@@ -4,13 +4,22 @@ import { light, dark } from "./palette";
 import CssBaseline from "@mui/material/CssBaseline";
 import Globals from "./globals";
 import BlenderProBook from "../fonts/Blender-Pro-Book.ttf";
+import Cyberpunk from "../fonts/Cyberpunk.otf";
 
 const fonts = `@font-face {
   font-family: "Blender";
   font-weight: 400;
   font-style: normal;
   src: local('Blender-Pro-Book'), url(${BlenderProBook}) format('truetype');
-}`;
+}
+
+@font-face {
+  font-family: "Cyberpunk";
+  font-weight: 400;
+  font-style: normal;
+  src: local('Cyberpunk'), url(${Cyberpunk}) format('opentype');
+}
+`;
 
 const Theme = ({ children }) => {
   const [theme, setTheme] = useState(getDefaultTheme());
@@ -27,7 +36,7 @@ const Theme = ({ children }) => {
       createTheme({
         ...(theme === "light" ? light : dark),
         typography: {
-          fontFamily: '"Blender", "Roboto"',
+          fontFamily: '"Blender", "Roboto","Cyberpunk"',
         },
         components: {
           MuiCssBaseline: {
