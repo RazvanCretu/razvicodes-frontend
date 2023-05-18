@@ -36,6 +36,7 @@ import {
 import copy from "copy-to-clipboard";
 import { Title2, Title3, Title4, Title5, Title6 } from "../Titles";
 import { atomOneDarkReasonable } from "react-syntax-highlighter/dist/cjs/styles/hljs";
+import { cyberGlitch0, cyberGlitch4 } from "../../animations/glitches";
 
 const Highlighter = styled(SyntaxHighlighter)(({ theme }) => ({
   "::before": {
@@ -65,6 +66,7 @@ const Img = styled("img")(({ theme }) => ({
   height: "300px",
   borderRadius: "5px",
   objectFit: "fill",
+  animation: `${cyberGlitch0} 5s linear infinite`,
   [theme.breakpoints.up("md")]: {
     height: "600px",
   },
@@ -190,9 +192,6 @@ const components = {
   h4: ({ node, ...props }) => <Title5 {...props} />,
   h5: ({ node, ...props }) => <Title6 {...props} />,
   h6: ({ node, ...props }) => <Title6 {...props} />,
-  // h6: ({ node, ...props }) => (
-  //   <Typography variant="h6" fontWeight={500} {...props} />
-  // ),
   table: ({ node, ...props }) => (
     <TableContainer>
       <StyledTable {...props} />

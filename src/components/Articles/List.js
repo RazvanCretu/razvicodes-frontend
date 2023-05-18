@@ -19,14 +19,15 @@ const ArticlesList = ({ articles }) => {
               transform: "translateX(100%)",
               animation: animate(i),
               display: "inline-block",
-              borderBottom: "1px solid black",
+              borderBottom: "1px solid",
+              borderColor: "text.main",
               marginBottom: "1rem",
               "::after": {
                 content: "' '",
                 width: "100%",
                 height: "6px",
                 display: "block",
-                backgroundColor: "#000",
+                backgroundColor: "text.main",
                 position: "relative",
                 transform: "translateY(100%)",
                 clipPath:
@@ -67,8 +68,6 @@ const ArticlesList = ({ articles }) => {
                   fontWeight: "bold",
                   padding: ".5rem 1rem",
                 }}
-                // disableFocusRipple
-                // disableTouchRipple
                 variant="contained"
                 component={Link}
                 to={slug}

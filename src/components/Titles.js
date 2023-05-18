@@ -1,5 +1,6 @@
 import { Typography } from "@mui/material";
 import { styled } from "@mui/material/styles";
+import { cyberGlitch4 } from "../animations/glitches";
 
 const StyledTypography = styled(Typography)(({ theme }) => ({
   width: "100%",
@@ -23,7 +24,11 @@ export const Title2 = ({ ...props }) => (
   <StyledTypography sx={{ width: "90%" }} variant="h2" {...props} />
 );
 export const Title3 = ({ ...props }) => (
-  <StyledTypography sx={{ width: "80%" }} variant="h3" {...props} />
+  <StyledTypography
+    sx={{ width: "80%", animation: `${cyberGlitch4} 5s linear infinite` }}
+    variant="h3"
+    {...props}
+  />
 );
 export const Title4 = ({ ...props }) => (
   <StyledTypography sx={{ width: "70%" }} variant="h4" {...props} />
