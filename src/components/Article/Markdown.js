@@ -39,7 +39,7 @@ const Highlighter = styled(SyntaxHighlighter)(({ theme }) => ({
     textShadow: `${theme.palette.text.shadow} 1px 1px`,
     marginBottom: "1rem",
   },
-  lineHeight: "1.1",
+  lineHeight: "1.1 !important",
   [theme.breakpoints.down("sm")]: {
     lineHeight: ".925 !important",
   },
