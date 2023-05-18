@@ -22,21 +22,14 @@ import { FaCopy, FaCheck } from "react-icons/fa";
 import {
   oneDark,
   oneLight,
+  duotoneSpace,
+  a11yDark,
+  materialLight,
+  materialDark,
 } from "react-syntax-highlighter/dist/esm/styles/prism";
-import {
-  solarizedDark,
-  solarizedLight,
-  railscasts,
-  androidstudio,
-  dracula,
-  atomOneDark,
-  atomOneLight,
-} from "react-syntax-highlighter/dist/esm/styles/hljs";
-
 import copy from "copy-to-clipboard";
 import { Title2, Title3, Title4, Title5, Title6 } from "../Titles";
-import { atomOneDarkReasonable } from "react-syntax-highlighter/dist/cjs/styles/hljs";
-import { cyberGlitch0, cyberGlitch4 } from "../../animations/glitches";
+import { cyberGlitch0 } from "../../animations/glitches";
 
 const Highlighter = styled(SyntaxHighlighter)(({ theme }) => ({
   "::before": {
@@ -46,10 +39,13 @@ const Highlighter = styled(SyntaxHighlighter)(({ theme }) => ({
     textShadow: `${theme.palette.text.shadow} 1px 1px`,
     marginBottom: "1rem",
   },
-  lineHeight: "1 !important",
+  lineHeight: "1.1",
+  [theme.breakpoints.down("sm")]: {
+    lineHeight: ".925 !important",
+  },
   "& code": {
-    fontSize: "1.05rem",
-    lineHeight: "inherit",
+    fontSize: "1rem",
+    lineHeight: "inherit !important",
   },
 }));
 
@@ -160,6 +156,8 @@ const Code = ({ node, inline, className, children, ...props }) => {
         children={String(children).replace(/\n$/, "")}
         style={theme.palette.mode === "dark" ? oneDark : oneLight}
         data-language={match[1]}
+        showLineNumbers
+        showInlineLineNumbers
         {...props}
       />
     </Box>
