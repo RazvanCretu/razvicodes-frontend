@@ -22,6 +22,7 @@ const Links = styled(Box)(({ theme }) => ({
   margin: "0 5rem 0 0",
   "& .MuiButtonBase-root": {
     fontWeight: "bold",
+    color: "inherit",
   },
   "& .active": {
     color:

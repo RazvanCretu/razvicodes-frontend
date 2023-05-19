@@ -89,9 +89,9 @@ export const Home = () => {
         <Box
           sx={{
             margin: "5rem 0",
-            color: "var(--active)",
             animation: "fadeIn 2s",
             a: {
+              color: "#1b5acd !important",
               margin: ".4rem",
               height: "100%",
             },
