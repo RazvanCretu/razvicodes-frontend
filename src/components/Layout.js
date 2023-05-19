@@ -1,7 +1,7 @@
 import React from "react";
+import Navigation from "./Navigation";
 import { Outlet } from "react-router-dom";
 import { Container } from "@mui/material";
-import NavBar from "./NavBar";
 
 export const Layout = () => {
   return (
@@ -14,7 +14,7 @@ export const Layout = () => {
         minHeight: "100vh",
       }}
     >
-      <NavBar />
+      <Navigation />
       <Outlet />
     </Container>
   );
