@@ -4,6 +4,7 @@ import remarkGfm from "remark-gfm";
 import remarkMath from "remark-math";
 import rehypeKatex from "rehype-katex";
 import "katex/dist/katex.min.css";
+import copy from "copy-to-clipboard";
 import {
   Typography,
   Box,
@@ -20,14 +21,9 @@ import { styled, useTheme } from "@mui/material/styles";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { FaCopy, FaCheck } from "react-icons/fa";
 import {
-  oneDark,
-  oneLight,
-  duotoneSpace,
-  a11yDark,
-  materialLight,
-  materialDark,
+  tomorrow,
+  solarizedlight,
 } from "react-syntax-highlighter/dist/esm/styles/prism";
-import copy from "copy-to-clipboard";
 import { Title2, Title3, Title4, Title5, Title6 } from "../Titles";
 import { cyberGlitch0 } from "../../animations/glitches";
 
@@ -39,12 +35,9 @@ const Highlighter = styled(SyntaxHighlighter)(({ theme }) => ({
     textShadow: `${theme.palette.text.shadow} 1px 1px`,
     marginBottom: "1rem",
   },
-  lineHeight: "1.1 !important",
-  [theme.breakpoints.down("sm")]: {
-    lineHeight: ".925 !important",
-  },
+  lineHeight: "1.25 !important",
+  fontSize: "1rem !important",
   "& code": {
-    fontSize: "1rem",
     lineHeight: "inherit !important",
   },
 }));
@@ -154,7 +147,7 @@ const Code = ({ node, inline, className, children, ...props }) => {
       <Highlighter
         language={match[1]}
         children={String(children).replace(/\n$/, "")}
-        style={theme.palette.mode === "dark" ? oneDark : oneLight}
+        style={theme.palette.mode === "dark" ? tomorrow : solarizedlight}
         data-language={match[1]}
         showLineNumbers
         showInlineLineNumbers
