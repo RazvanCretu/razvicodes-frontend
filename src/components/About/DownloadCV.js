@@ -1,5 +1,4 @@
 import React, { useRef } from "react";
-import { Typography } from "@mui/material";
 import CyberButton from "../Buttons";
 
 const getBlob = async (cv, ref) => {
