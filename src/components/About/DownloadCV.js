@@ -1,5 +1,6 @@
 import React, { useRef } from "react";
 import { Typography } from "@mui/material";
+import CyberButton from "../Buttons";
 
 const getBlob = async (cv, ref) => {
   const res = await fetch(cv.attributes.url);
@@ -15,20 +16,20 @@ const DownloadCV = ({ cv }) => {
   getBlob(cv, downloadBtn);
 
   return (
-    <Typography
+    <CyberButton
       component="a"
-      sx={{
-        background: "var(--active)",
-        padding: "0.95rem 0.5rem",
-        borderRadius: "15px",
-        fontWeight: 600,
-      }}
       href="#"
       download="Razvan's WebDev CV.pdf"
+      ph="1.75rem"
+      pv="0.6rem"
+      f="1rem"
+      c=".77rem"
+      errText="$_error_&;"
+      hideTag
       ref={downloadBtn}
     >
       Download CV
-    </Typography>
+    </CyberButton>
   );
 };
 
