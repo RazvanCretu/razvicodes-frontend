@@ -1,5 +1,6 @@
 import { styled, keyframes } from "@mui/material/styles";
 import { ButtonBase } from "@mui/material";
+import React from "react";
 
 const glitch = keyframes`
     0% {
@@ -160,14 +161,16 @@ const Tag = styled("span")(({ theme }) => ({
   fontSize: "var(--tag-font-size)",
 }));
 
-const CyberButton = ({ children, errText, hideTag, ...props }) => {
-  return (
-    <Button {...props}>
-      {children}
-      <GlitchText>{errText}</GlitchText>
-      {!hideTag && <Tag>R25</Tag>}
-    </Button>
-  );
-};
+const CyberButton = React.forwardRef(
+  ({ children, errText, hideTag, ...props }, ref) => {
+    return (
+      <Button ref={ref} {...props}>
+        {children}
+        <GlitchText>{errText}</GlitchText>
+        {!hideTag && <Tag>R25</Tag>}
+      </Button>
+    );
+  }
+);
 
 export default CyberButton;
