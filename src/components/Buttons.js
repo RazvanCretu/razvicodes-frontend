@@ -62,17 +62,17 @@ const glitch = keyframes`
         clip-path: var(--button-clip-4);
     }`;
 
-const Button = styled(ButtonBase)(({ theme, pv, ph, c, f, hideTag }) => ({
-  "--button-border": "4px",
-  "--button-font-size": f || "1.4rem",
-  "--button-padding-v": pv || "0.9rem",
-  "--button-padding-h": ph || "2.5rem",
+const Button = styled(ButtonBase)(({ theme, disableHover }) => ({
+  "--bg": "#ff003c",
   "--tag-font-size": ".55rem",
-  "--button-cutout": c || "1.1rem",
+  "--button-border": "4px",
+  "--button-font-size": "1.4rem",
+  "--button-padding-v": "0.9rem",
+  "--button-padding-h": "2.5rem",
+  "--button-cutout": "1.1rem",
   "--button-shadow-primary": "cyan",
   "--button-shadow-secondary": "yellow",
   "--button-shimmy-distance": 5,
-  "--bg": "#ff003c",
   "--button-clip-1":
     "polygon(0 2%, 100% 2%, 100% 95%, 95% 95%, 95% 90%, 85% 90%, 85% 95%, 8% 95%, 0 70%)",
   "--button-clip-2":
@@ -101,6 +101,7 @@ const Button = styled(ButtonBase)(({ theme, pv, ph, c, f, hideTag }) => ({
   transition: "background .2s",
   color: "white !important",
   zIndex: 2,
+  marginRight: "1rem",
   "::before": {
     background: "var(--button-shadow-primary)",
     transform: "translateX(var(--button-border))",
@@ -118,7 +119,7 @@ const Button = styled(ButtonBase)(({ theme, pv, ph, c, f, hideTag }) => ({
     clipPath: "var(--button-clip)",
     zIndex: -1,
   },
-  ":hover": {
+  [!disableHover && ":hover"]: {
     "span:first-of-type": {
       display: "block",
     },

@@ -43,21 +43,6 @@ const Succes = () => {
           </Button>
         </>
       )}
-      {/* <button
-        onClick={async () => {
-          fetch(
-            `http://localhost:1337/api/auth/google/callback${location.search}`
-          )
-            .then((resp) => resp.json())
-            .then((data) => {
-              window.location = `app://jwt=${data.jwt}`;
-            });
-        }}
-      >
-        Click
-      </button> */}
-      {/* <a href={`app://?id_token=${params.getAll("id_token")}`}>Click</a> */}
-      {/* {params.get("id_token")} */}
     </Container>
   );
 };

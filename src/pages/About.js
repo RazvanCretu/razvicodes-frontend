@@ -19,6 +19,7 @@ import {
   SiDocker,
 } from "react-icons/si";
 import DownloadCV from "../components/About/DownloadCV";
+import CyberButton from "../components/Buttons";
 
 const UPLOAD_FILES = gql`
   query Files {
@@ -169,20 +170,23 @@ export const About = () => {
           could work on?
         </Typography>
         <Box sx={{ margin: "5rem 0rem" }}>
-          <Typography
-            sx={{
-              padding: "0.75rem 0.5rem",
-              border: ".2rem solid var(--text-secondary)",
-              borderRadius: "15px",
-              marginRight: "2rem",
-              fontWeight: 600,
-            }}
+          <CyberButton
             component="a"
             href="mailto:razvan.cretu97@gmail.com"
             rel="noreferrer"
+            target="_blank"
+            sx={{
+              "--bg": "purple",
+              "--button-font-size": "1rem",
+              "--button-padding-v": "0.6rem",
+              "--button-padding-h": "1.75rem",
+              "--button-cutout": ".77rem",
+            }}
+            disableHover
+            hideTag
           >
-            Email Me
-          </Typography>
+            Email
+          </CyberButton>
           <DownloadCV cv={data.uploadFiles.data[0]} />
         </Box>
       </Section>

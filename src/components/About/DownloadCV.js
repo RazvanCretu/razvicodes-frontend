@@ -19,12 +19,15 @@ const DownloadCV = ({ cv }) => {
       component="a"
       href="#"
       download="Razvan's WebDev CV.pdf"
-      ph="1.75rem"
-      pv="0.6rem"
-      f="1rem"
-      c=".77rem"
+      sx={{
+        "--button-font-size": "1rem",
+        "--button-padding-v": "0.6rem",
+        "--button-padding-h": "1.75rem",
+        "--button-cutout": ".77rem",
+      }}
       errText="$_error_&;"
       hideTag
+      // disableHover
       ref={downloadBtn}
     >
       Download CV
