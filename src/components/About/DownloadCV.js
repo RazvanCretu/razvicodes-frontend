@@ -2,7 +2,7 @@ import React, { useRef } from "react";
 import CyberButton from "../Buttons";
 
 const getBlob = async (cv, ref) => {
-  const res = await fetch(cv.attributes.url);
+  const res = await fetch(cv.url);
   const blob = await res.blob();
   const url = URL.createObjectURL(new Blob([blob]));
 

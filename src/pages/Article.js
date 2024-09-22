@@ -103,18 +103,18 @@ export const Article = () => {
     return <Loader />;
   }
 
-  const article = data.articles.data[0];
+  const article = data.articles[0];
 
   return (
     <ArticleContainer sx={{ color: "text.main" }}>
       <Hero>
-        <Title1 variant="h1">{article.attributes.title}</Title1>
+        <Title1 variant="h1">{article.title}</Title1>
         <Typography component={Moment} format="YY MMM dddd Do">
-          {article.attributes.publishedAt}
+          {article.publishedAt}
         </Typography>
       </Hero>
       <Content>
-        <Markdown children={article.attributes.content} />
+        <Markdown children={article.content} />
       </Content>
     </ArticleContainer>
   );

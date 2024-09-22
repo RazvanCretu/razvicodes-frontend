@@ -38,7 +38,7 @@ const Articles = () => {
   }
 
   // make chunks of posts corresponding to each page
-  const posts = data.articles.data.reduce((resultArray, item, index) => {
+  const posts = data.articles.reduce((resultArray, item, index) => {
     const chunkIndex = Math.floor(index / pageSize);
 
     if (!resultArray[chunkIndex]) {
@@ -54,6 +54,8 @@ const Articles = () => {
     localStorage.setItem("articlesPage", page);
     setCurrentPage(page);
   };
+
+  console.log(posts);
 
   return (
     <ArticlesContainer>

@@ -24,16 +24,12 @@ import CyberButton from "../components/Buttons";
 const UPLOAD_FILES = gql`
   query Files {
     uploadFiles(filters: { name: { contains: "Razvan WebDev CV" } }) {
-      data {
-        id
-        attributes {
-          name
-          hash
-          ext
-          createdAt
-          url
-        }
-      }
+      documentId
+      name
+      hash
+      ext
+      createdAt
+      url
     }
   }
 `;
@@ -187,7 +183,7 @@ export const About = () => {
           >
             Email
           </CyberButton>
-          <DownloadCV cv={data.uploadFiles.data[0]} />
+          {data.uploadFiles[0] && <DownloadCV cv={data.uploadFiles[0]} />}
         </Box>
       </Section>
     </Container>
